@@ -382,7 +382,7 @@ void Sram_InitDebugSave(void) {
      */
     gSaveContext.save.info.eventChkInf[EVENTCHKINF_0X_INDEX] |= 0b0001001000111111;
     SET_EVENTCHKINF(EVENTCHKINF_80);
-    SET_EVENTCHKINF(EVENTCHKINF_C4);
+    SET_EVENTCHKINF(EVENTCHKINF_VISITED_TEMPLE_OF_TIME);
 
     if (LINK_AGE_IN_YEARS == YEARS_CHILD) {
         gSaveContext.save.info.equips.buttonItems[0] = ITEM_SWORD_KOKIRI;

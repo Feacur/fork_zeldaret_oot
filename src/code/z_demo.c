@@ -109,7 +109,7 @@ EntranceCutscene sEntranceCutsceneTable[] = {
     { ENTR_INSIDE_GANONS_CASTLE_6, 2, EVENTCHKINF_DISPELED_LIGHT_BARRIER, gLightBarrierCs },
     { ENTR_INSIDE_GANONS_CASTLE_7, 2, EVENTCHKINF_DISPELED_SPIRIT_BARRIER, gSpiritBarrierCs },
     { ENTR_SPIRIT_TEMPLE_BOSS_0, 0, EVENTCHKINF_C0, gSpiritBossNabooruKnuckleIntroCs },
-    { ENTR_GERUDOS_FORTRESS_17, 0, EVENTCHKINF_C7, gGerudoFortressFirstCaptureCs },
+    { ENTR_GERUDOS_FORTRESS_17, 0, EVENTCHKINF_VISITED_GANON_BOSS, gGerudoFortressFirstCaptureCs },
     { ENTR_DEATH_MOUNTAIN_CRATER_1, 2, EVENTCHKINF_WARP_IN_DEATH_MOUNTAIN_CRATER, gDeathMountainCraterIntroCs },
     { ENTR_KOKIRI_FOREST_12, 2, EVENTCHKINF_C6, gKokiriForestDekuSproutCs },
 };
@@ -2398,30 +2398,33 @@ void Cutscene_HandleConditionalTriggers(PlayState* play) {
 
     if ((gSaveContext.gameMode == GAMEMODE_NORMAL) && (gSaveContext.respawnFlag <= 0) &&
         (gSaveContext.save.cutsceneIndex < 0xFFF0)) {
-        if ((gSaveContext.save.entranceIndex == ENTR_DESERT_COLOSSUS_1) && !Flags_GetEventChkInf(EVENTCHKINF_AC)) {
-            Flags_SetEventChkInf(EVENTCHKINF_AC);
+        if ((gSaveContext.save.entranceIndex == ENTR_DESERT_COLOSSUS_1) &&
+            !Flags_GetEventChkInf(EVENTCHKINF_VISITED_DESERT_COLOSSUS)) {
+            Flags_SetEventChkInf(EVENTCHKINF_VISITED_DESERT_COLOSSUS);
             gSaveContext.save.entranceIndex = ENTR_DESERT_COLOSSUS_0;
             gSaveContext.save.cutsceneIndex = 0xFFF0;
         } else if ((gSaveContext.save.entranceIndex == ENTR_KAKARIKO_VILLAGE_0) && LINK_IS_ADULT &&
                    GET_EVENTCHKINF(EVENTCHKINF_CLEARED_FOREST_TEMPLE) &&
                    GET_EVENTCHKINF(EVENTCHKINF_CLEARED_FIRE_TEMPLE) &&
-                   GET_EVENTCHKINF(EVENTCHKINF_CLEARED_WATER_TEMPLE) && !Flags_GetEventChkInf(EVENTCHKINF_AA)) {
-            Flags_SetEventChkInf(EVENTCHKINF_AA);
+                   GET_EVENTCHKINF(EVENTCHKINF_CLEARED_WATER_TEMPLE) &&
+                   !Flags_GetEventChkInf(EVENTCHKINF_VISITED_KAKARIKO_VILLAGE)) {
+            Flags_SetEventChkInf(EVENTCHKINF_VISITED_KAKARIKO_VILLAGE);
             gSaveContext.save.cutsceneIndex = 0xFFF0;
-        } else if ((gSaveContext.save.entranceIndex == ENTR_LOST_WOODS_9) && !Flags_GetEventChkInf(EVENTCHKINF_C1)) {
-            Flags_SetEventChkInf(EVENTCHKINF_C1);
+        } else if ((gSaveContext.save.entranceIndex == ENTR_LOST_WOODS_9) &&
+                   !Flags_GetEventChkInf(EVENTCHKINF_VISITED_LOST_WOODS)) {
+            Flags_SetEventChkInf(EVENTCHKINF_VISITED_LOST_WOODS);
             Item_Give(play, ITEM_OCARINA_FAIRY);
             gSaveContext.save.entranceIndex = ENTR_LOST_WOODS_0;
             gSaveContext.save.cutsceneIndex = 0xFFF0;
         } else if (CHECK_QUEST_ITEM(QUEST_MEDALLION_SPIRIT) && CHECK_QUEST_ITEM(QUEST_MEDALLION_SHADOW) &&
-                   LINK_IS_ADULT && !Flags_GetEventChkInf(EVENTCHKINF_C4) &&
+                   LINK_IS_ADULT && !Flags_GetEventChkInf(EVENTCHKINF_VISITED_TEMPLE_OF_TIME) &&
                    (gEntranceTable[((void)0, gSaveContext.save.entranceIndex)].sceneId == SCENE_TEMPLE_OF_TIME)) {
-            Flags_SetEventChkInf(EVENTCHKINF_C4);
+            Flags_SetEventChkInf(EVENTCHKINF_VISITED_TEMPLE_OF_TIME);
             gSaveContext.save.entranceIndex = ENTR_TEMPLE_OF_TIME_0;
             gSaveContext.save.cutsceneIndex = 0xFFF8;
-        } else if (!Flags_GetEventChkInf(EVENTCHKINF_C7) &&
+        } else if (!Flags_GetEventChkInf(EVENTCHKINF_VISITED_GANON_BOSS) &&
                    (gEntranceTable[((void)0, gSaveContext.save.entranceIndex)].sceneId == SCENE_GANON_BOSS)) {
-            Flags_SetEventChkInf(EVENTCHKINF_C7);
+            Flags_SetEventChkInf(EVENTCHKINF_VISITED_GANON_BOSS);
             gSaveContext.save.entranceIndex = ENTR_GANON_BOSS_0;
             gSaveContext.save.cutsceneIndex = 0xFFF0;
         }

@@ -678,7 +678,7 @@ u16 EnHy_GetTextId(PlayState* play, Actor* thisx) {
 
         case ENHY_TYPE_MAN_2_MUSTACHE_RED_SHIRT:
             if (play->sceneId == SCENE_KAKARIKO_CENTER_GUEST_HOUSE) {
-                return GET_EVENTCHKINF(EVENTCHKINF_AA) ? 0x5082 : 0x5081;
+                return GET_EVENTCHKINF(EVENTCHKINF_VISITED_KAKARIKO_VILLAGE) ? 0x5082 : 0x5081;
             } else if (play->sceneId == SCENE_KAKARIKO_VILLAGE) {
                 return CHECK_QUEST_ITEM(QUEST_MEDALLION_SHADOW) ? 0x5080 : 0x507F;
             } else {
@@ -687,7 +687,7 @@ u16 EnHy_GetTextId(PlayState* play, Actor* thisx) {
 
         case ENHY_TYPE_MAN_2_MUSTACHE_BLUE_SHIRT:
             if (play->sceneId == SCENE_IMPAS_HOUSE) {
-                return GET_EVENTCHKINF(EVENTCHKINF_AA) ? 0x507E : 0x507D;
+                return GET_EVENTCHKINF(EVENTCHKINF_VISITED_KAKARIKO_VILLAGE) ? 0x507E : 0x507D;
             } else if (play->sceneId == SCENE_KAKARIKO_VILLAGE) {
                 return CHECK_QUEST_ITEM(QUEST_MEDALLION_SHADOW) ? 0x507C : 0x507B;
             } else {

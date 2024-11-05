@@ -3887,7 +3887,7 @@ void KaleidoScope_Update(PlayState* play) {
             if (GET_EVENTCHKINF(EVENTCHKINF_67)) {
                 pauseCtx->worldMapPoints[WORLD_MAP_POINT_KAKARIKO_VILLAGE] = WORLD_MAP_POINT_STATE_SHOW;
             }
-            if (GET_EVENTCHKINF(EVENTCHKINF_AA)) {
+            if (GET_EVENTCHKINF(EVENTCHKINF_VISITED_KAKARIKO_VILLAGE)) {
                 pauseCtx->worldMapPoints[WORLD_MAP_POINT_KAKARIKO_VILLAGE] = WORLD_MAP_POINT_STATE_HIGHLIGHT;
             }
             if (CHECK_QUEST_ITEM(QUEST_MEDALLION_SHADOW)) {

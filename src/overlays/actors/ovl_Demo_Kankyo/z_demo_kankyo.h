@@ -24,8 +24,8 @@ typedef enum DemoKankyoType {
     /* 0x0C */ DEMOKANKYO_C,
     /* 0x0D */ DEMOKANKYO_DOOR_OF_TIME,
     /* 0x0E */ DEMOKANKYO_LIGHT_PLANE,
-    /* 0x0F */ DEMOKANKYO_WARP_OUT,
-    /* 0x10 */ DEMOKANKYO_WARP_IN,
+    /* 0x0F */ DEMOKANKYO_WARP_IN,
+    /* 0x10 */ DEMOKANKYO_WARP_OUT,
     /* 0x11 */ DEMOKANKYO_SPARKLES
 } DemoKankyoType;
 

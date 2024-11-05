@@ -102,12 +102,12 @@ EntranceCutscene sEntranceCutsceneTable[] = {
     { ENTR_DEATH_MOUNTAIN_CRATER_0, 2, EVENTCHKINF_B9, gDeathMountainCraterIntroCs },
     { ENTR_HYRULE_CASTLE_0, 0, EVENTCHKINF_BA, gGanonsCastleIntroCs },
     { ENTR_ROYAL_FAMILYS_TOMB_1, 2, EVENTCHKINF_5A, gSunSongGraveSunSongTeachPart2Cs },
-    { ENTR_INSIDE_GANONS_CASTLE_2, 2, EVENTCHKINF_BB, gForestBarrierCs },
-    { ENTR_INSIDE_GANONS_CASTLE_3, 2, EVENTCHKINF_BC, gWaterBarrierCs },
-    { ENTR_INSIDE_GANONS_CASTLE_4, 2, EVENTCHKINF_BD, gShadowBarrierCs },
-    { ENTR_INSIDE_GANONS_CASTLE_5, 2, EVENTCHKINF_BE, gFireBarrierCs },
-    { ENTR_INSIDE_GANONS_CASTLE_6, 2, EVENTCHKINF_BF, gLightBarrierCs },
-    { ENTR_INSIDE_GANONS_CASTLE_7, 2, EVENTCHKINF_AD, gSpiritBarrierCs },
+    { ENTR_INSIDE_GANONS_CASTLE_2, 2, EVENTCHKINF_DISPELED_FOREST_BARRIER, gForestBarrierCs },
+    { ENTR_INSIDE_GANONS_CASTLE_3, 2, EVENTCHKINF_DISPELED_WATER_BARRIER, gWaterBarrierCs },
+    { ENTR_INSIDE_GANONS_CASTLE_4, 2, EVENTCHKINF_DISPELED_SHADOW_BARRIER, gShadowBarrierCs },
+    { ENTR_INSIDE_GANONS_CASTLE_5, 2, EVENTCHKINF_DISPELED_FIRE_BARRIER, gFireBarrierCs },
+    { ENTR_INSIDE_GANONS_CASTLE_6, 2, EVENTCHKINF_DISPELED_LIGHT_BARRIER, gLightBarrierCs },
+    { ENTR_INSIDE_GANONS_CASTLE_7, 2, EVENTCHKINF_DISPELED_SPIRIT_BARRIER, gSpiritBarrierCs },
     { ENTR_SPIRIT_TEMPLE_BOSS_0, 0, EVENTCHKINF_C0, gSpiritBossNabooruKnuckleIntroCs },
     { ENTR_GERUDOS_FORTRESS_17, 0, EVENTCHKINF_C7, gGerudoFortressFirstCaptureCs },
     { ENTR_DEATH_MOUNTAIN_CRATER_1, 2, EVENTCHKINF_B9, gDeathMountainCraterIntroCs },
@@ -1359,9 +1359,12 @@ void CutsceneCmd_Destination(PlayState* play, CutsceneContext* csCtx, CsCmdDesti
                 break;
 
             case CS_DEST_GANONS_CASTLE_DISPEL_BARRIER_CONDITONAL:
-                if (Flags_GetEventChkInf(EVENTCHKINF_BB) && Flags_GetEventChkInf(EVENTCHKINF_BC) &&
-                    Flags_GetEventChkInf(EVENTCHKINF_BD) && Flags_GetEventChkInf(EVENTCHKINF_BE) &&
-                    Flags_GetEventChkInf(EVENTCHKINF_BF) && Flags_GetEventChkInf(EVENTCHKINF_AD)) {
+                if (Flags_GetEventChkInf(EVENTCHKINF_DISPELED_FOREST_BARRIER) &&
+                    Flags_GetEventChkInf(EVENTCHKINF_DISPELED_WATER_BARRIER) &&
+                    Flags_GetEventChkInf(EVENTCHKINF_DISPELED_SHADOW_BARRIER) &&
+                    Flags_GetEventChkInf(EVENTCHKINF_DISPELED_FIRE_BARRIER) &&
+                    Flags_GetEventChkInf(EVENTCHKINF_DISPELED_LIGHT_BARRIER) &&
+                    Flags_GetEventChkInf(EVENTCHKINF_DISPELED_SPIRIT_BARRIER)) {
                     play->csCtx.script = SEGMENTED_TO_VIRTUAL(gTowerBarrierCs);
                     play->csCtx.curFrame = 0;
                     gSaveContext.cutsceneTrigger = 1;

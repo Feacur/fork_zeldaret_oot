@@ -55,6 +55,16 @@ ActorProfile Object_Kankyo_Profile = {
     /**/ ObjectKankyo_Draw,
 };
 
+typedef enum BeamEffect {
+    /* 0 */ BEAM_EFFECT_FOREST_BARRIER,
+    /* 1 */ BEAM_EFFECT_WATER_BARRIER,
+    /* 2 */ BEAM_EFFECT_SHADOW_BARRIER,
+    /* 3 */ BEAM_EFFECT_FIRE_BARRIER,
+    /* 4 */ BEAM_EFFECT_LIGHT_BARRIER,
+    /* 5 */ BEAM_EFFECT_SPIRIT_BARRIER,
+    /* 6 */ BEAM_EFFECT_MAX,
+} BeamEffect;
+
 static u8 sIsSpawned = false;
 static s16 sTrailingFairies = 0;
 
@@ -96,59 +106,59 @@ void ObjectKankyo_Init(Actor* thisx, PlayState* play) {
             break;
 
         case 4:
-            this->effects[0].alpha = 0;
-            this->effects[0].amplitude = 0.0f;
+            this->effects[BEAM_EFFECT_FOREST_BARRIER].alpha = 0;
+            this->effects[BEAM_EFFECT_FOREST_BARRIER].amplitude = 0.0f;
             Actor_ChangeCategory(play, &play->actorCtx, &this->actor, ACTORCAT_ITEMACTION);
             this->requiredObjectLoaded = false;
             ObjectKankyo_SetupAction(this, ObjectKankyo_SunGraveSparkInit);
             break;
 
         case 5:
-            this->effects[0].alpha = 0;
-            this->effects[0].amplitude = 0.0f;
+            this->effects[BEAM_EFFECT_FOREST_BARRIER].alpha = 0;
+            this->effects[BEAM_EFFECT_FOREST_BARRIER].amplitude = 0.0f;
 
-            for (i = 0; i < 6; i++) {
+            for (i = 0; i < BEAM_EFFECT_MAX; i++) {
                 this->effects[i].size = 0.1f;
             }
 
             // Check which beams are disabled
-            if (Flags_GetEventChkInf(EVENTCHKINF_BB)) {
-                this->effects[0].size = 0.0f;
+            if (Flags_GetEventChkInf(EVENTCHKINF_DISPELED_FOREST_BARRIER)) {
+                this->effects[BEAM_EFFECT_FOREST_BARRIER].size = 0.0f;
             }
-            if (Flags_GetEventChkInf(EVENTCHKINF_BC)) {
-                this->effects[1].size = 0.0f;
+            if (Flags_GetEventChkInf(EVENTCHKINF_DISPELED_WATER_BARRIER)) {
+                this->effects[BEAM_EFFECT_WATER_BARRIER].size = 0.0f;
             }
-            if (Flags_GetEventChkInf(EVENTCHKINF_BD)) {
-                this->effects[2].size = 0.0f;
+            if (Flags_GetEventChkInf(EVENTCHKINF_DISPELED_SHADOW_BARRIER)) {
+                this->effects[BEAM_EFFECT_SHADOW_BARRIER].size = 0.0f;
             }
-            if (Flags_GetEventChkInf(EVENTCHKINF_BE)) {
-                this->effects[3].size = 0.0f;
+            if (Flags_GetEventChkInf(EVENTCHKINF_DISPELED_FIRE_BARRIER)) {
+                this->effects[BEAM_EFFECT_FIRE_BARRIER].size = 0.0f;
             }
-            if (Flags_GetEventChkInf(EVENTCHKINF_BF)) {
-                this->effects[4].size = 0.0f;
+            if (Flags_GetEventChkInf(EVENTCHKINF_DISPELED_LIGHT_BARRIER)) {
+                this->effects[BEAM_EFFECT_LIGHT_BARRIER].size = 0.0f;
             }
-            if (Flags_GetEventChkInf(EVENTCHKINF_AD)) {
-                this->effects[5].size = 0.0f;
+            if (Flags_GetEventChkInf(EVENTCHKINF_DISPELED_SPIRIT_BARRIER)) {
+                this->effects[BEAM_EFFECT_SPIRIT_BARRIER].size = 0.0f;
             }
 
             if (gSaveContext.cutsceneTrigger != 0) {
                 if (gSaveContext.save.entranceIndex == ENTR_INSIDE_GANONS_CASTLE_2) {
-                    this->effects[0].size = 0.1f;
+                    this->effects[BEAM_EFFECT_FOREST_BARRIER].size = 0.1f;
                 }
                 if (gSaveContext.save.entranceIndex == ENTR_INSIDE_GANONS_CASTLE_3) {
-                    this->effects[1].size = 0.1f;
+                    this->effects[BEAM_EFFECT_WATER_BARRIER].size = 0.1f;
                 }
                 if (gSaveContext.save.entranceIndex == ENTR_INSIDE_GANONS_CASTLE_4) {
-                    this->effects[2].size = 0.1f;
+                    this->effects[BEAM_EFFECT_SHADOW_BARRIER].size = 0.1f;
                 }
                 if (gSaveContext.save.entranceIndex == ENTR_INSIDE_GANONS_CASTLE_5) {
-                    this->effects[3].size = 0.1f;
+                    this->effects[BEAM_EFFECT_FIRE_BARRIER].size = 0.1f;
                 }
                 if (gSaveContext.save.entranceIndex == ENTR_INSIDE_GANONS_CASTLE_6) {
-                    this->effects[4].size = 0.1f;
+                    this->effects[BEAM_EFFECT_LIGHT_BARRIER].size = 0.1f;
                 }
                 if (gSaveContext.save.entranceIndex == ENTR_INSIDE_GANONS_CASTLE_7) {
-                    this->effects[5].size = 0.1f;
+                    this->effects[BEAM_EFFECT_SPIRIT_BARRIER].size = 0.1f;
                 }
             }
 
@@ -927,7 +937,7 @@ void ObjectKankyo_DrawBeams(Actor* thisx, PlayState* play2) {
     OPEN_DISPS(play->state.gfxCtx, "../z_object_kankyo.c", 1539);
 
     if (this->requiredObjectLoaded) {
-        for (i = 0; i < 6; i++) {
+        for (i = 0; i < BEAM_EFFECT_MAX; i++) {
             if (this->effects[i].size > 0.001f) {
                 Matrix_Translate(beamX[i], beamY[i], beamZ[i], MTXMODE_NEW);
                 Matrix_RotateY(DEG_TO_RAD(beamYaw[i]), MTXMODE_APPLY);

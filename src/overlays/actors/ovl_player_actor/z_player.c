@@ -13783,9 +13783,9 @@ void Player_Action_8084E3C4(Player* this, PlayState* play) {
         this->stateFlags1 |= PLAYER_STATE1_28 | PLAYER_STATE1_29;
         this->stateFlags2 |= PLAYER_STATE2_USING_OCARINA;
 
-        if (Actor_Spawn(&play->actorCtx, play, ACTOR_DEMO_KANKYO, 0.0f, 0.0f, 0.0f, 0, 0, 0, DEMOKANKYO_WARP_OUT) ==
+        if (Actor_Spawn(&play->actorCtx, play, ACTOR_DEMO_KANKYO, 0.0f, 0.0f, 0.0f, 0, 0, 0, DEMOKANKYO_WARP_IN) ==
             NULL) {
-            Environment_WarpSongLeave(play);
+            Environment_SongWarpIn(play);
         }
 
         gSaveContext.seqId = (u8)NA_BGM_DISABLED;
@@ -14271,7 +14271,7 @@ void Player_Action_8084F608(Player* this, PlayState* play) {
 void Player_Action_8084F698(Player* this, PlayState* play) {
     Player_SetupAction(play, this, Player_Action_8084F608, 0);
     this->av2.actionVar2 = 40;
-    Actor_Spawn(&play->actorCtx, play, ACTOR_DEMO_KANKYO, 0.0f, 0.0f, 0.0f, 0, 0, 0, DEMOKANKYO_WARP_IN);
+    Actor_Spawn(&play->actorCtx, play, ACTOR_DEMO_KANKYO, 0.0f, 0.0f, 0.0f, 0, 0, 0, DEMOKANKYO_WARP_OUT);
 }
 
 void Player_Action_8084F710(Player* this, PlayState* play) {

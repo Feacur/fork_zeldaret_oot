@@ -249,15 +249,15 @@ void DemoKankyo_Init(Actor* thisx, PlayState* play) {
             this->actor.scale.x = this->actor.scale.y = this->actor.scale.z = 1.0f;
             this->unk_150[0].unk_18 = 0.0f;
             break;
-        case DEMOKANKYO_WARP_OUT:
         case DEMOKANKYO_WARP_IN:
+        case DEMOKANKYO_WARP_OUT:
             Actor_ChangeCategory(play, &play->actorCtx, &this->actor, ACTORCAT_ITEMACTION);
             this->actor.flags |= ACTOR_FLAG_UPDATE_DURING_OCARINA;
             this->actor.room = -1;
             this->warpTimer = 35;
             this->sparkleCounter = 0;
             this->actor.scale.x = this->actor.scale.y = this->actor.scale.z = 1.0f;
-            if (this->actor.params == DEMOKANKYO_WARP_OUT) {
+            if (this->actor.params == DEMOKANKYO_WARP_IN) {
                 Audio_PlaySfxGeneral(NA_SE_EV_SARIA_MELODY, &gSfxDefaultPos, 4, &gSfxDefaultFreqAndVolScale,
                                      &gSfxDefaultFreqAndVolScale, &gSfxDefaultReverb);
             }
@@ -300,7 +300,7 @@ void DemoKankyo_SetupType(DemoKankyo* this, PlayState* play) {
                     DemoKankyo_SetupAction(this, DemoKankyo_UpdateDoorOfTime);
                 }
                 break;
-            case DEMOKANKYO_WARP_OUT:
+            case DEMOKANKYO_WARP_IN:
                 play->envCtx.screenFillColor[0] = 0xFF;
                 play->envCtx.screenFillColor[1] = 0xFF;
                 play->envCtx.screenFillColor[2] = 0xFF;
@@ -345,7 +345,7 @@ void DemoKankyo_SetupType(DemoKankyo* this, PlayState* play) {
                     DemoKankyo_SetupAction(this, DemoKankyo_DoNothing);
                 }
                 break;
-            case DEMOKANKYO_WARP_IN:
+            case DEMOKANKYO_WARP_OUT:
                 if (play->sceneId == SCENE_TEMPLE_OF_TIME) {
                     if (!LINK_IS_ADULT) {
                         play->csCtx.script = gChildWarpOutToTCS;
@@ -481,8 +481,8 @@ void DemoKankyo_Draw(Actor* thisx, PlayState* play) {
             case DEMOKANKYO_LIGHT_PLANE:
                 DemoKankyo_DrawLightPlane(thisx, play);
                 break;
-            case DEMOKANKYO_WARP_OUT:
             case DEMOKANKYO_WARP_IN:
+            case DEMOKANKYO_WARP_OUT:
                 DemoKankyo_DrawWarpSparkles(thisx, play);
                 break;
             case DEMOKANKYO_SPARKLES:
@@ -798,7 +798,7 @@ void DemoKankyo_DrawWarpSparkles(Actor* thisx, PlayState* play) {
                 this->unk_150[i].unk_22++;
                 FALLTHROUGH;
             case 1:
-                if (this->actor.params == DEMOKANKYO_WARP_OUT) {
+                if (this->actor.params == DEMOKANKYO_WARP_IN) {
                     if (func_800BB2B4(&camPos, &sWarpRoll, &sWarpFoV, sWarpOutCameraPoints, &this->unk_150[i].unk_20,
                                       &this->unk_150[i].unk_1C) != 0) {
                         this->unk_150[i].unk_22++;
@@ -815,7 +815,7 @@ void DemoKankyo_DrawWarpSparkles(Actor* thisx, PlayState* play) {
                                       &this->unk_150[i].unk_1C) != 0) {
                         this->unk_150[i].unk_22++;
                     }
-                    if (D_8098CF84 < play2->csCtx.curFrame && this->actor.params == DEMOKANKYO_WARP_OUT) {
+                    if (D_8098CF84 < play2->csCtx.curFrame && this->actor.params == DEMOKANKYO_WARP_IN) {
                         this->unk_150[i].unk_22++;
                     }
                 }
@@ -823,9 +823,9 @@ void DemoKankyo_DrawWarpSparkles(Actor* thisx, PlayState* play) {
                 DemoKankyo_Vec3fAddPosRot(&posRot, &camPos, &D_8098CF98);
                 break;
             case 2:
-                if (this->actor.params == DEMOKANKYO_WARP_OUT) {
+                if (this->actor.params == DEMOKANKYO_WARP_IN) {
                     if (i == 0) {
-                        Environment_WarpSongLeave(play2);
+                        Environment_SongWarpIn(play2);
                         this->unk_150[i].unk_22++;
                     }
                 } else if (i + 1 == this->sparkleCounter && play2->csCtx.state == CS_STATE_IDLE) {
@@ -876,7 +876,7 @@ void DemoKankyo_DrawWarpSparkles(Actor* thisx, PlayState* play) {
             Matrix_Scale(this->unk_150[i].unk_18 * (0.018f * temp_f22), this->unk_150[i].unk_18 * (0.018f * temp_f22),
                          this->unk_150[i].unk_18 * (0.018f * temp_f22), MTXMODE_APPLY);
             gDPSetPrimColor(POLY_XLU_DISP++, 0, 0x80, 255, 255, 255, 255);
-            if (this->actor.params == DEMOKANKYO_WARP_OUT) {
+            if (this->actor.params == DEMOKANKYO_WARP_IN) {
                 gDPSetEnvColor(POLY_XLU_DISP++, sWarpSparkleEnvColors[play2->msgCtx.lastPlayedSong].r,
                                sWarpSparkleEnvColors[play2->msgCtx.lastPlayedSong].g,
                                sWarpSparkleEnvColors[play2->msgCtx.lastPlayedSong].b, 255);

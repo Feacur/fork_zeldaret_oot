@@ -284,6 +284,6 @@ void Environment_ForcePlaySequence(u16 seqId);
 s32 Environment_IsForcedSequenceDisabled(void);
 void Environment_PlayStormNatureAmbience(struct PlayState* play);
 void Environment_StopStormNatureAmbience(struct PlayState* play);
-void Environment_WarpSongLeave(struct PlayState* play);
+void Environment_SongWarpIn(struct PlayState* play);
 
 #endif

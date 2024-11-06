@@ -8,6 +8,8 @@ struct EnDodojr;
 
 typedef void (*EnDodojrActionFunc)(struct EnDodojr*, PlayState*);
 
+#define DODOJR_LIMB_MAX 15
+
 typedef struct EnDodojr {
     /* 0x0000 */ Actor actor;
     /* 0x014C */ SkelAnime skelAnime;
@@ -22,8 +24,8 @@ typedef struct EnDodojr {
     /* 0x0202 */ s16 timer; // Used for burrowing/despawning, bomb swallowing, and dying.
     /* 0x0204 */ s16 crawlSfxTimer;
     /* 0x0208 */ f32 rootScale; // scale used with the root limb
-    /* 0x020C */ Vec3s jointTable[15];
-    /* 0x0266 */ Vec3s morphTable[15];
+    /* 0x020C */ Vec3s jointTable[DODOJR_LIMB_MAX];
+    /* 0x0266 */ Vec3s morphTable[DODOJR_LIMB_MAX];
 } EnDodojr; // size = 0x02C0
 
 #endif

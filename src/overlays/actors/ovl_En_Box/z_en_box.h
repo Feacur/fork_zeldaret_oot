@@ -29,6 +29,8 @@ typedef enum EnBoxType {
     /* 11 */ ENBOX_TYPE_SWITCH_FLAG_BIG         // big, appear on switch flag set
 } EnBoxType;
 
+#define ENBOX_LIMB_MAX 5
+
 typedef struct EnBox {
     /* 0x0000 */ DynaPolyActor dyna;
     /* 0x0164 */ SkelAnime skelanime;
@@ -36,8 +38,8 @@ typedef struct EnBox {
     /* 0x01AC */ s32 subCamId;
     /* 0x01B0 */ f32 unk_1B0; // 0-1, rotation-related, apparently unused (in z_en_box.c at least)
     /* 0x01B4 */ EnBoxActionFunc actionFunc;
-    /* 0x01B8 */ Vec3s jointTable[5];
-    /* 0x01D6 */ Vec3s morphTable[5];
+    /* 0x01B8 */ Vec3s jointTable[ENBOX_LIMB_MAX];
+    /* 0x01D6 */ Vec3s morphTable[ENBOX_LIMB_MAX];
     /* 0x01F4 */ s16 unk_1F4; // probably a frame count? set by player code
     /* 0x01F6 */ u8 movementFlags;
     /* 0x01F7 */ u8 alpha;

@@ -160,7 +160,7 @@ void EnBigokuta_Init(Actor* thisx, PlayState* play) {
 
     Actor_ProcessInitChain(&this->actor, sInitChain);
     SkelAnime_InitFlex(play, &this->skelAnime, &object_bigokuta_Skel_006BC0, &object_bigokuta_Anim_0014B8,
-                       this->jointTable, this->morphTable, 20);
+                       this->jointTable, this->morphTable, EN_BIGOKUTA_LIMB_MAX);
 
     Collider_InitJntSph(play, &this->collider);
     Collider_SetJntSph(play, &this->collider, &this->actor, &sJntSphInit, &this->element);

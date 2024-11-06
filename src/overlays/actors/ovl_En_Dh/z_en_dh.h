@@ -8,11 +8,13 @@ struct EnDh;
 
 typedef void (*EnDhActionFunc)(struct EnDh*, PlayState*);
 
+#define ENDH_LIMB_MAX 16
+
 typedef struct EnDh {
     /* 0x0000 */ Actor actor;
     /* 0x014C */ SkelAnime skelAnime;
-    /* 0x0170 */ Vec3s jointTable[16];
-    /* 0x01F0 */ Vec3s limbRotTable[16];
+    /* 0x0170 */ Vec3s jointTable[ENDH_LIMB_MAX];
+    /* 0x01F0 */ Vec3s limbRotTable[ENDH_LIMB_MAX];
     /* 0x0250 */ u8 actionState;
     /* 0x0251 */ u8 retreat;
     /* 0x0252 */ u8 drawDirtWave;

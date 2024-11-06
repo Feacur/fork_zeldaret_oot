@@ -8,11 +8,13 @@ struct EnDivingGame;
 
 typedef void (*EnDivingGameActionFunc)(struct EnDivingGame*, PlayState*);
 
+#define DIVING_GAME_LIMB_MAX 20
+
 typedef struct EnDivingGame {
     /* 0x0000 */ Actor actor;
     /* 0x014C */ SkelAnime skelAnime;
-    /* 0x0190 */ Vec3s jointTable[20];
-    /* 0x0208 */ Vec3s morphTable[20];
+    /* 0x0190 */ Vec3s jointTable[DIVING_GAME_LIMB_MAX];
+    /* 0x0208 */ Vec3s morphTable[DIVING_GAME_LIMB_MAX];
     /* 0x0280 */ EnDivingGameActionFunc actionFunc;
     /* 0x0284 */ Vec3s headRot;
     /* 0x028A */ Vec3s torsoRot;

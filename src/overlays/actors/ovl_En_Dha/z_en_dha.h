@@ -8,11 +8,13 @@ struct EnDha;
 
 typedef void (*EnDhaActionFunc)(struct EnDha*, PlayState*);
 
+#define ENDHA_LIMB_MAX 4
+
 typedef struct EnDha {
     /* 0x0000 */ Actor actor;
     /* 0x014C */ SkelAnime skelAnime;
-    /* 0x0190 */ Vec3s jointTable[4];
-    /* 0x01A8 */ Vec3s morphTable[4];
+    /* 0x0190 */ Vec3s jointTable[ENDHA_LIMB_MAX];
+    /* 0x01A8 */ Vec3s morphTable[ENDHA_LIMB_MAX];
     /* 0x01C0 */ u8 unk_1C0;
     /* 0x01C4 */ EnDhaActionFunc actionFunc;
     /* 0x01C8 */ s16 actionTimer;

@@ -8,6 +8,8 @@ struct EnFirefly;
 
 typedef void (*EnFireflyActionFunc)(struct EnFirefly*, PlayState*);
 
+#define FIREFLY_LIMB_MAX 28
+
 typedef struct EnFirefly {
     /* 0x0000 */ Actor actor;
     /* 0x014C */ Vec3f bodyPartsPos[3];
@@ -17,8 +19,8 @@ typedef struct EnFirefly {
     /* 0x01B9 */ u8 onFire;
     /* 0x01BA */ s16 timer;
     /* 0x01BC */ s16 targetPitch;
-    /* 0x01BE */ Vec3s jointTable[28];
-    /* 0x0266 */ Vec3s morphTable[28];
+    /* 0x01BE */ Vec3s jointTable[FIREFLY_LIMB_MAX];
+    /* 0x0266 */ Vec3s morphTable[FIREFLY_LIMB_MAX];
     /* 0x0310 */ f32 maxAltitude;
     /* 0x0314 */ ColliderJntSph collider;
     /* 0x0344 */ ColliderJntSphElement colliderItems[1];

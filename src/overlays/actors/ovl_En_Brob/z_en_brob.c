@@ -61,7 +61,7 @@ void EnBrob_Init(Actor* thisx, PlayState* play) {
     EnBrob* this = (EnBrob*)thisx;
     CollisionHeader* colHeader = NULL;
 
-    SkelAnime_InitFlex(play, &this->skelAnime, &gBrobSkel, &gBrobMoveUpAnim, this->jointTable, this->morphTable, 10);
+    SkelAnime_InitFlex(play, &this->skelAnime, &gBrobSkel, &gBrobMoveUpAnim, this->jointTable, this->morphTable, ENBROB_LIMB_MAX);
     DynaPolyActor_Init(&this->dyna, 0);
     CollisionHeader_GetVirtual(&gBrobCol, &colHeader);
     this->dyna.bgId = DynaPoly_SetBgActor(play, &play->colCtx.dyna, thisx, colHeader);

@@ -8,12 +8,14 @@ struct EnAni;
 
 typedef void (*EnAniActionFunc)(struct EnAni*, PlayState*);
 
+#define ENANI_LIMB_MAX 16
+
 typedef struct EnAni {
     /* 0x0000 */ Actor actor;
     /* 0x014C */ ColliderCylinder collider;
     /* 0x0198 */ SkelAnime skelAnime;
-    /* 0x01DC */ Vec3s jointTable[16];
-    /* 0x023C */ Vec3s morphTable[16];
+    /* 0x01DC */ Vec3s jointTable[ENANI_LIMB_MAX];
+    /* 0x023C */ Vec3s morphTable[ENANI_LIMB_MAX];
     /* 0x029C */ Vec3s unk_29C;
     /* 0x02A2 */ Vec3s unk_2A2;
     /* 0x02A8 */ u16 unk_2A8;

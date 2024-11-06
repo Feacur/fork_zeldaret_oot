@@ -280,7 +280,7 @@ void BossSst_Init(Actor* thisx, PlayState* play2) {
         sFloor = (BgSstFloor*)Actor_Spawn(&play->actorCtx, play, ACTOR_BG_SST_FLOOR, sRoomCenter.x, sRoomCenter.y,
                                           sRoomCenter.z, 0, 0, 0, BONGOFLOOR_REST);
         SkelAnime_InitFlex(play, &this->skelAnime, &gBongoHeadSkel, &gBongoHeadEyeOpenIdleAnim, this->jointTable,
-                           this->morphTable, 45);
+                           this->morphTable, BOSS_SST_LIMB_MAX);
         ActorShape_Init(&this->actor.shape, 70000.0f, ActorShadow_DrawCircle, 95.0f);
         Collider_SetJntSph(play, &this->colliderJntSph, &this->actor, &sJntSphInitHead, this->colliderItems);
         Collider_SetCylinder(play, &this->colliderCyl, &this->actor, &sCylinderInitHead);

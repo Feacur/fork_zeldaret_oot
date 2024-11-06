@@ -10,11 +10,13 @@ struct EnBomBowlMan;
 
 typedef void (*EnBomBowlManActionFunc)(struct EnBomBowlMan*, PlayState*);
 
+#define EN_BOM_BOWL_MAN_LIMB_MAX 11
+
 typedef struct EnBomBowlMan {
     /* 0x0000 */ Actor actor;
     /* 0x014C */ SkelAnime skelAnime;
-    /* 0x0190 */ Vec3s jointTable[11];
-    /* 0x01D2 */ Vec3s morphTable[11];
+    /* 0x0190 */ Vec3s jointTable[EN_BOM_BOWL_MAN_LIMB_MAX];
+    /* 0x01D2 */ Vec3s morphTable[EN_BOM_BOWL_MAN_LIMB_MAX];
     /* 0x0214 */ EnBomBowlManActionFunc actionFunc;
     /* 0x0218 */ Vec3s unk_218;
     /* 0x021E */ char unk_21E[0x6];

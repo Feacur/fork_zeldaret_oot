@@ -58,7 +58,7 @@ void EnBomBowlMan_Init(Actor* thisx, PlayState* play2) {
 
     ActorShape_Init(&this->actor.shape, 0.0f, ActorShadow_DrawCircle, 30.0f);
     SkelAnime_InitFlex(play, &this->skelAnime, &gChuGirlSkel, &gChuGirlNoddingOffAnim, this->jointTable,
-                       this->morphTable, 11);
+                       this->morphTable, EN_BOM_BOWL_MAN_LIMB_MAX);
     // "☆ Man, my shoulders hurt~ ☆"
     PRINTF(VT_FGCOL(GREEN) "☆ もー 肩こっちゃうよねぇ〜 \t\t ☆ \n" VT_RST);
     // "☆ Isn't there some sort of job that will pay better and be more relaxing? ☆ %d"

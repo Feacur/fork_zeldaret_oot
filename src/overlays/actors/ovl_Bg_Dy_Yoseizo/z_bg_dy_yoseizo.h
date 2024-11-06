@@ -12,6 +12,8 @@ typedef void (*BgDyYoseizoActionFunc)(struct BgDyYoseizo*, PlayState*);
 
 #define BG_DY_YOSEIZO_EFFECT_COUNT 200
 
+#define BG_DY_YOSEIZO_LIMB_MAX 28
+
 typedef struct BgDyYoseizoEffect {
     /* 0x00 */ u8 alive; // drawn if 1, respawn if 0
     /* 0x04 */ Vec3f pos;
@@ -32,8 +34,8 @@ typedef struct BgDyYoseizo {
     /* 0x0000 */ Actor actor;
     /* 0x014C */ BgDyYoseizoActionFunc actionFunc;
     /* 0x0150 */ SkelAnime skelAnime;
-    /* 0x0194 */ Vec3s jointTable[28];
-    /* 0x023C */ Vec3s morphTable[28];
+    /* 0x0194 */ Vec3s jointTable[BG_DY_YOSEIZO_LIMB_MAX];
+    /* 0x023C */ Vec3s morphTable[BG_DY_YOSEIZO_LIMB_MAX];
     /* 0x02E4 */ u8 lightBallSpawned;
     /* 0x02E5 */ u8 giveDefenseHearts;
     /* 0x02E6 */ u8 healing;

@@ -89,7 +89,7 @@ void BgDyYoseizo_Init(Actor* thisx, PlayState* play2) {
         // "Great Fairy Fountain"
         PRINTF(VT_FGCOL(GREEN) "☆☆☆☆☆ 大妖精の泉 ☆☆☆☆☆ %d\n" VT_RST, play->spawn);
         SkelAnime_InitFlex(play, &this->skelAnime, &gGreatFairySkel, &gGreatFairySittingTransitionAnim,
-                           this->jointTable, this->morphTable, 28);
+                           this->jointTable, this->morphTable, BG_DY_YOSEIZO_LIMB_MAX);
 #if OOT_VERSION < NTSC_1_1
         if (!gSaveContext.save.info.playerData.isMagicAcquired && (this->fountainType != FAIRY_UPGRADE_MAGIC)) {
             Actor_Kill(&this->actor);
@@ -100,7 +100,7 @@ void BgDyYoseizo_Init(Actor* thisx, PlayState* play2) {
         // "Stone/Jewel Fairy Fountain"
         PRINTF(VT_FGCOL(GREEN) "☆☆☆☆☆ 石妖精の泉 ☆☆☆☆☆ %d\n" VT_RST, play->spawn);
         SkelAnime_InitFlex(play, &this->skelAnime, &gGreatFairySkel, &gGreatFairyLayingDownTransitionAnim,
-                           this->jointTable, this->morphTable, 28);
+                           this->jointTable, this->morphTable, BG_DY_YOSEIZO_LIMB_MAX);
 #if OOT_VERSION < NTSC_1_1
         if (!gSaveContext.save.info.playerData.isMagicAcquired) {
             Actor_Kill(&this->actor);

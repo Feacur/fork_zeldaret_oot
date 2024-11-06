@@ -8,6 +8,8 @@ struct EnDog;
 
 typedef void (*EnDogActionFunc)(struct EnDog*, PlayState*);
 
+#define DOG_LIMB_MAX 13
+
 typedef struct EnDog {
     /* 0x0000 */ Actor actor;
     /* 0x014C */ SkelAnime skelAnime;
@@ -22,8 +24,8 @@ typedef struct EnDog {
     /* 0x01EE */ s16 pad2;
     /* 0x01F0 */ s16 nextBehavior;
     /* 0x01F2 */ s16 behavior;
-    /* 0x01F4 */ Vec3s jointTable[13];
-    /* 0x0242 */ Vec3s morphTable[13];
+    /* 0x01F4 */ Vec3s jointTable[DOG_LIMB_MAX];
+    /* 0x0242 */ Vec3s morphTable[DOG_LIMB_MAX];
 } EnDog; // size = 0x0290
 
 #endif

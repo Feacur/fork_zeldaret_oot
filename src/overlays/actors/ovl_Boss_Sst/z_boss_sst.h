@@ -10,6 +10,8 @@ typedef void (*BossSstActionFunc)(struct BossSst*, PlayState*);
 
 #define BOSS_SST_EFFECT_COUNT 18
 
+#define BOSS_SST_LIMB_MAX 45
+
 typedef struct BossSstEffect {
     /* 0x0000 */ Vec3f pos;
     /* 0x0010 */ Vec3f vel;
@@ -41,8 +43,8 @@ typedef struct BossSst {
     /* 0x01A2 */ s16 amplitude;
     /* 0x01A4 */ s16 targetYaw;
     /* 0x01A6 */ s16 targetRoll;
-    /* 0x01A8 */ Vec3s jointTable[45];
-    /* 0x02B6 */ Vec3s morphTable[45];
+    /* 0x01A8 */ Vec3s jointTable[BOSS_SST_LIMB_MAX];
+    /* 0x02B6 */ Vec3s morphTable[BOSS_SST_LIMB_MAX];
     /* 0x03C4 */ f32 radius;
     /* 0x03C8 */ Vec3f center;
     /* 0x03D4 */ ColliderJntSph colliderJntSph;

@@ -48,14 +48,16 @@ struct EnDoor;
 
 typedef void (*EnDoorActionFunc)(struct EnDoor*, struct PlayState*);
 
+#define DOOR_LIMB_MAX 5
+
 typedef struct EnDoor {
     /* 0x0000 */ DOOR_ACTOR_BASE;
     /* 0x0192 */ u8 unk_192;
     /* 0x0193 */ s8 requiredObjectSlot;
     /* 0x0194 */ s8 dListIndex;
     /* 0x0196 */ s16 lockTimer;
-    /* 0x0198 */ Vec3s jointTable[5];
-    /* 0x01B6 */ Vec3s morphTable[5];
+    /* 0x0198 */ Vec3s jointTable[DOOR_LIMB_MAX];
+    /* 0x01B6 */ Vec3s morphTable[DOOR_LIMB_MAX];
     /* 0x01D4 */ EnDoorActionFunc actionFunc;
 } EnDoor; // size = 0x01D8
 

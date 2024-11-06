@@ -8,12 +8,14 @@ struct EnAm;
 
 typedef void (*EnAmActionFunc)(struct EnAm*, PlayState*);
 
+#define ENAM_LIMB_MAX 14
+
 typedef struct EnAm {
     /* 0x0000 */ DynaPolyActor dyna;
     /* 0x0164 */ SkelAnime skelAnime;
     /* 0x01A8 */ s32 behavior;
-    /* 0x01AC */ Vec3s jointTable[14];
-    /* 0x0200 */ Vec3s morphTable[14];
+    /* 0x01AC */ Vec3s jointTable[ENAM_LIMB_MAX];
+    /* 0x0200 */ Vec3s morphTable[ENAM_LIMB_MAX];
     /* 0x0254 */ EnAmActionFunc actionFunc;
     /* 0x0258 */ s16 unk_258;
     /* 0x025A */ s16 cooldownTimer;

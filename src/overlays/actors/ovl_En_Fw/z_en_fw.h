@@ -23,6 +23,8 @@ typedef struct EnFwEffect {
     /* 0x002C */ Vec3f accel;
 } EnFwEffect;
 
+#define FW_LIMB_MAX 11
+
 typedef struct EnFw {
     /* 0x0000 */ Actor actor;
     /* 0x014C */ SkelAnime skelAnime;
@@ -42,8 +44,8 @@ typedef struct EnFw {
     /* 0x0212 */ s16 returnToParentTimer;
     /* 0x0214 */ s16 turnAround;
     /* 0x0218 */ f32 runRadius;
-    /* 0x021C */ Vec3s jointTable[11];
-    /* 0x025E */ Vec3s morphTable[11];
+    /* 0x021C */ Vec3s jointTable[FW_LIMB_MAX];
+    /* 0x025E */ Vec3s morphTable[FW_LIMB_MAX];
     /* 0x02A0 */ EnFwEffect effects[EN_FW_EFFECT_COUNT];
 } EnFw; // size = 0x0700
 

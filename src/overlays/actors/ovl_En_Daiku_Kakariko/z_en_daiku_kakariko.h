@@ -8,6 +8,8 @@ struct EnDaikuKakariko;
 
 typedef void (*EnDaikuKakarikoActionFunc)(struct EnDaikuKakariko*, PlayState*);
 
+#define DAIKU_KAKARIKO_LIMB_MAX 17
+
 typedef struct EnDaikuKakariko {
     /* 0x0000 */ Actor actor;
     /* 0x014C */ SkelAnime skelAnime;
@@ -23,8 +25,8 @@ typedef struct EnDaikuKakariko {
     /* 0x0200 */ u16 flags;
     /* 0x0202 */ u16 runFlag;
     /* 0x0204 */ NpcInteractInfo interactInfo;
-    /* 0x022C */ Vec3s jointTable[17];
-    /* 0x0292 */ Vec3s morphTable[17];
+    /* 0x022C */ Vec3s jointTable[DAIKU_KAKARIKO_LIMB_MAX];
+    /* 0x0292 */ Vec3s morphTable[DAIKU_KAKARIKO_LIMB_MAX];
     /* 0x02F8 */ s32 timer;
     /* 0x02FC */ Vec3s neckAngle;
     /* 0x0302 */ Vec3s neckAngleTarget;

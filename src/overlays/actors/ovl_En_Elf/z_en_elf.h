@@ -11,11 +11,13 @@ struct EnElf;
 typedef void (*EnElfActionFunc)(struct EnElf*, struct PlayState*);
 typedef void (*EnElfUnkFunc)(struct EnElf*, struct PlayState*);
 
+#define ELF_LIMB_MAX 15
+
 typedef struct EnElf {
     /* 0x0000 */ Actor actor;
     /* 0x014C */ SkelAnime skelAnime;
-    /* 0x0190 */ Vec3s jointTable[15];
-    /* 0x01EA */ Vec3s morphTable[15];
+    /* 0x0190 */ Vec3s jointTable[ELF_LIMB_MAX];
+    /* 0x01EA */ Vec3s morphTable[ELF_LIMB_MAX];
     /* 0x0244 */ Color_RGBAf innerColor;
     /* 0x0254 */ Color_RGBAf outerColor;
     /* 0x0264 */ LightInfo lightInfoGlow;

@@ -8,6 +8,8 @@ struct EnDekunuts;
 
 typedef void (*EnDekunutsActionFunc)(struct EnDekunuts*, PlayState*);
 
+#define DEKUNUTS_LIMB_MAX 25
+
 typedef struct EnDekunuts {
     /* 0x0000 */ Actor actor;
     /* 0x014C */ SkelAnime skelAnime;
@@ -17,8 +19,8 @@ typedef struct EnDekunuts {
     /* 0x0196 */ s16 animFlagAndTimer;
     /* 0x0198 */ s16 runDirection;
     /* 0x019A */ s16 shotsPerRound;
-    /* 0x019C */ Vec3s jointTable[25];
-    /* 0x0232 */ Vec3s morphTable[25];
+    /* 0x019C */ Vec3s jointTable[DEKUNUTS_LIMB_MAX];
+    /* 0x0232 */ Vec3s morphTable[DEKUNUTS_LIMB_MAX];
     /* 0x02C8 */ ColliderCylinder collider;
 } EnDekunuts; // size = 0x0314
 

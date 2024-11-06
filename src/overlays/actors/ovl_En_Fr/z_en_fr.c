@@ -284,10 +284,10 @@ void EnFr_Update(Actor* thisx, PlayState* play) {
         Actor_ProcessInitChain(&this->actor, sInitChain);
         // frog
         SkelAnime_InitFlex(play, &this->skelAnime, &object_fr_Skel_00B498, &object_fr_Anim_001534, this->jointTable,
-                           this->morphTable, 24);
+                           this->morphTable, FROG_LIMB_MAX);
         // butterfly
         SkelAnime_Init(play, &this->skelAnimeButterfly, &gButterflySkel, &gButterflyAnim, this->jointTableButterfly,
-                       this->morphTableButterfly, 8);
+                       this->morphTableButterfly, FROG_BUTTERFLY_LIMB_MAX);
         // When playing the song for the HP, the frog with the next note and the butterfly turns on its lightsource
         this->lightNode = LightContext_InsertLight(play, &play->lightCtx, &this->lightInfo);
         Lights_PointNoGlowSetInfo(&this->lightInfo, this->actor.home.pos.x, this->actor.home.pos.y,

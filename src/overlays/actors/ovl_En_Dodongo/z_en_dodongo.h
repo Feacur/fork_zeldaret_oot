@@ -8,11 +8,13 @@ struct EnDodongo;
 
 typedef void (*EnDodongoActionFunc)(struct EnDodongo*, PlayState*);
 
+#define DODONGO_LIMB_MAX 31
+
 typedef struct EnDodongo {
     /* 0x0000 */ Actor actor;
     /* 0x014C */ SkelAnime skelAnime;
-    /* 0x0190 */ Vec3s jointTable[31];
-    /* 0x024A */ Vec3s morphTable[31];
+    /* 0x0190 */ Vec3s jointTable[DODONGO_LIMB_MAX];
+    /* 0x024A */ Vec3s morphTable[DODONGO_LIMB_MAX];
     /* 0x0304 */ s32 actionState;
     /* 0x0308 */ EnDodongoActionFunc actionFunc;
     /* 0x030C */ s16 timer;

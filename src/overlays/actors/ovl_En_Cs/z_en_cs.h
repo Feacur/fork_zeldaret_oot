@@ -8,6 +8,8 @@ struct EnCs;
 
 typedef void (*EnCsActionFunc)(struct EnCs*, PlayState*);
 
+#define ENCS_LIMB_MAX 16
+
 typedef struct EnCs {
     /* 0x0000 */ Actor actor;
     /* 0x014C */ SkelAnime skelAnime;
@@ -30,8 +32,8 @@ typedef struct EnCs {
     /* 0x0218 */ MtxF spookyMaskMtx;
     /* 0x0258 */ NpcInteractInfo interactInfo;
     /* 0x0280 */ s32 flag;
-    /* 0x0284 */ Vec3s jointTable[16];
-    /* 0x02E4 */ Vec3s morphTable[16];
+    /* 0x0284 */ Vec3s jointTable[ENCS_LIMB_MAX];
+    /* 0x02E4 */ Vec3s morphTable[ENCS_LIMB_MAX];
 } EnCs; // size = 0x0344
 
 #endif

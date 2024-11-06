@@ -8,6 +8,8 @@ struct EnDaiku;
 
 typedef void (*EnDaikuActionFunc)(struct EnDaiku*, PlayState*);
 
+#define DAIKU_LIMB_MAX 17
+
 typedef struct EnDaiku {
     /* 0x0000 */ Actor actor;
     /* 0x014C */ SkelAnime skelAnime;
@@ -31,8 +33,8 @@ typedef struct EnDaiku {
     /* 0x023C */ s32 stateFlags;
     /* 0x0240 */ s32 startFightSwitchFlag;
     /* 0x0244 */ NpcInteractInfo interactInfo;
-    /* 0x026C */ Vec3s jointTable[17];
-    /* 0x02D2 */ Vec3s morphTable[17];
+    /* 0x026C */ Vec3s jointTable[DAIKU_LIMB_MAX];
+    /* 0x02D2 */ Vec3s morphTable[DAIKU_LIMB_MAX];
     /* 0x0338 */ Vec3s initRot;
     /* 0x0340 */ Vec3f initPos;
 } EnDaiku; // size = 0x034C

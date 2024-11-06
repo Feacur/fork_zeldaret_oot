@@ -8,6 +8,8 @@ typedef struct EnFloormas EnFloormas;
 
 typedef void (*EnFloormasActionFunc)(EnFloormas* this, PlayState* play);
 
+#define FLOORMAS_LIMB_MAX 25
+
 struct EnFloormas{
     /* 0x0000 */ Actor actor;
     /* 0x014C */ SkelAnime skelAnime;
@@ -16,8 +18,8 @@ struct EnFloormas{
     /* 0x0196 */ s16 actionTarget;
     /* 0x0198 */ s16 zOffset;
     /* 0x019A */ s16 smallActionTimer;
-    /* 0x019C */ Vec3s jointTable[25];
-    /* 0x0232 */ Vec3s morphTable[25];
+    /* 0x019C */ Vec3s jointTable[FLOORMAS_LIMB_MAX];
+    /* 0x0232 */ Vec3s morphTable[FLOORMAS_LIMB_MAX];
     /* 0x02C8 */ ColliderCylinder collider;
 }; // size = 0x0314
 

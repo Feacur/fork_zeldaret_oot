@@ -8,11 +8,14 @@ struct EnDntNomal;
 
 typedef void (*EnDntNomalActionFunc)(struct EnDntNomal*, PlayState*);
 
+#define DNTNOMAL_LIMB_MAX_TARGET 10
+#define DNTNOMAL_LIMB_MAX 11
+
 typedef struct EnDntNomal {
     /* 0x0000 */ Actor actor;
     /* 0x014C */ SkelAnime skelAnime;
-    /* 0x0190 */ Vec3s jointTable[11];
-    /* 0x01D2 */ Vec3s morphTable[11];
+    /* 0x0190 */ Vec3s jointTable[DNTNOMAL_LIMB_MAX];
+    /* 0x01D2 */ Vec3s morphTable[DNTNOMAL_LIMB_MAX];
     /* 0x0214 */ EnDntNomalActionFunc actionFunc;
     /* 0x0218 */ u8 isSolid;
     /* 0x0219 */ Vec3f flowerPos;

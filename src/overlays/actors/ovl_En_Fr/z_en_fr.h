@@ -28,14 +28,17 @@ typedef enum FrogSongType {
     /* 7 */ FROG_NO_SONG
 } FrogSongType;
 
+#define FROG_LIMB_MAX 24
+#define FROG_BUTTERFLY_LIMB_MAX 8
+
 typedef struct EnFr {
     /* 0x0000 */ Actor actor;
     /* 0x014C */ SkelAnime skelAnime;   // Frog Skeleton
-    /* 0x0190 */ Vec3s jointTable[24];
-    /* 0x0220 */ Vec3s morphTable[24];
+    /* 0x0190 */ Vec3s jointTable[FROG_LIMB_MAX];
+    /* 0x0220 */ Vec3s morphTable[FROG_LIMB_MAX];
     /* 0x02B0 */ SkelAnime skelAnimeButterfly;  // Butterfly Skeleton above Frog during Frog Song
-    /* 0x02F4 */ Vec3s jointTableButterfly[8];
-    /* 0x0324 */ Vec3s morphTableButterfly[8];
+    /* 0x02F4 */ Vec3s jointTableButterfly[FROG_BUTTERFLY_LIMB_MAX];
+    /* 0x0324 */ Vec3s morphTableButterfly[FROG_BUTTERFLY_LIMB_MAX];
     /* 0x0354 */ EnFrActionFunc actionFunc;
     /* 0x0358 */ LightNode* lightNode; // Frogs light up during the Frog Song, specifically the frog with the next note.
     /* 0x035C */ LightInfo lightInfo;

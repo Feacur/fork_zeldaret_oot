@@ -8,11 +8,13 @@ struct EnDntJiji;
 
 typedef void (*EnDntJijiActionFunc)(struct EnDntJiji*, PlayState*);
 
+#define EN_DNT_JIJI_LIMB_MAX 13
+
 typedef struct EnDntJiji {
     /* 0x0000 */ Actor actor;
     /* 0x014C */ SkelAnime skelAnime;
-    /* 0x0190 */ Vec3s jointTable[13];
-    /* 0x01DE */ Vec3s morphTable[13];
+    /* 0x0190 */ Vec3s jointTable[EN_DNT_JIJI_LIMB_MAX];
+    /* 0x01DE */ Vec3s morphTable[EN_DNT_JIJI_LIMB_MAX];
     /* 0x022C */ EnDntJijiActionFunc actionFunc;
     /* 0x0230 */ Vec3f flowerPos;
     /* 0x023C */ u8 isSolid;

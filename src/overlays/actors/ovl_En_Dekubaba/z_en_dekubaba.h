@@ -13,6 +13,8 @@ typedef enum DekuBabaType {
     /* 1 */ DEKUBABA_BIG
 } DekuBabaType;
 
+#define DEKUBABA_LIMB_MAX 8
+
 typedef struct EnDekubaba {
     /* 0x0000 */ Actor actor;
     /* 0x014C */ Vec3f bodyPartsPos[4];
@@ -22,8 +24,8 @@ typedef struct EnDekubaba {
     /* 0x01C6 */ s16 timer;
     /* 0x01C8 */ s16 targetSwayAngle;
     /* 0x01CA */ s16 stemSectionAngle[3]; // Used to calculate the position of the stem sections and head with spherical trigonometry
-    /* 0x01D0 */ Vec3s jointTable[8];
-    /* 0x0200 */ Vec3s morphTable[8];
+    /* 0x01D0 */ Vec3s jointTable[DEKUBABA_LIMB_MAX];
+    /* 0x0200 */ Vec3s morphTable[DEKUBABA_LIMB_MAX];
     /* 0x0230 */ f32 size; // Used everywhere to rescale offsets etc. for Big ones
     /* 0x0234 */ CollisionPoly* boundFloor;
     /* 0x0238 */ ColliderJntSph collider;

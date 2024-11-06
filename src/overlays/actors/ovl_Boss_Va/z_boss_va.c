@@ -627,7 +627,7 @@ void BossVa_Init(Actor* thisx, PlayState* play2) {
                                BOSSVA_DOOR);
             if (Flags_GetClear(play, play->roomCtx.curRoom.num)) {
                 warpId = ACTOR_EN_RU1;
-                if (GET_EVENTCHKINF(EVENTCHKINF_37)) {
+                if (GET_EVENTCHKINF(EVENTCHKINF_HAS_ZORA_SAPPHIRE)) {
                     warpId = ACTOR_DOOR_WARP1;
                 }
                 Actor_Spawn(&play->actorCtx, play, warpId, this->actor.world.pos.x, this->actor.world.pos.y,

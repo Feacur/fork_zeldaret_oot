@@ -1192,9 +1192,9 @@ void Scene_DrawConfigKokiriForest(PlayState* play) {
         spA0 = play->roomCtx.drawParams[0] + 500;
     } else if (
 #if OOT_VERSION < PAL_1_0
-        !IS_CUTSCENE_LAYER && GET_EVENTCHKINF(EVENTCHKINF_07)
+        !IS_CUTSCENE_LAYER && GET_EVENTCHKINF(EVENTCHKINF_HAS_KOKIRI_EMERALD_ONCE)
 #else
-        (!IS_CUTSCENE_LAYER || LINK_IS_ADULT) && GET_EVENTCHKINF(EVENTCHKINF_07)
+        (!IS_CUTSCENE_LAYER || LINK_IS_ADULT) && GET_EVENTCHKINF(EVENTCHKINF_HAS_KOKIRI_EMERALD_ONCE)
 #endif
     ) {
         spA0 = 2150;

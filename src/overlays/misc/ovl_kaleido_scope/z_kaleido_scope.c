@@ -3842,7 +3842,7 @@ void KaleidoScope_Update(PlayState* play) {
             if (INV_CONTENT(ITEM_OCARINA_OF_TIME) == ITEM_OCARINA_OF_TIME) {
                 pauseCtx->worldMapPoints[WORLD_MAP_POINT_MARKET] = WORLD_MAP_POINT_STATE_HIGHLIGHT;
             }
-            if (GET_EVENTCHKINF(EVENTCHKINF_45)) {
+            if (GET_EVENTCHKINF(EVENTCHKINF_HAS_MASTER_SWORD)) {
                 pauseCtx->worldMapPoints[WORLD_MAP_POINT_MARKET] = WORLD_MAP_POINT_STATE_SHOW;
             }
             if (INV_CONTENT(ITEM_ARROW_LIGHT) == ITEM_ARROW_LIGHT) {
@@ -3875,7 +3875,7 @@ void KaleidoScope_Update(PlayState* play) {
             if (CHECK_QUEST_ITEM(QUEST_SONG_SUN)) {
                 pauseCtx->worldMapPoints[WORLD_MAP_POINT_KAKARIKO_VILLAGE] = WORLD_MAP_POINT_STATE_SHOW;
             }
-            if (GET_EVENTCHKINF(EVENTCHKINF_45)) {
+            if (GET_EVENTCHKINF(EVENTCHKINF_HAS_MASTER_SWORD)) {
                 pauseCtx->worldMapPoints[WORLD_MAP_POINT_KAKARIKO_VILLAGE] = WORLD_MAP_POINT_STATE_HIGHLIGHT;
             }
             if (INV_CONTENT(ITEM_HOOKSHOT) == ITEM_HOOKSHOT) {
@@ -3897,7 +3897,7 @@ void KaleidoScope_Update(PlayState* play) {
             if (gBitFlags[WORLD_MAP_AREA_LOST_WOODS] & gSaveContext.save.info.worldMapAreaData) {
                 pauseCtx->worldMapPoints[WORLD_MAP_POINT_LOST_WOODS] = WORLD_MAP_POINT_STATE_SHOW;
             }
-            if (GET_EVENTCHKINF(EVENTCHKINF_0F)) {
+            if (GET_EVENTCHKINF(EVENTCHKINF_MIDO_TELLS_SARIA_IN_LOST_WOODS)) {
                 pauseCtx->worldMapPoints[WORLD_MAP_POINT_LOST_WOODS] = WORLD_MAP_POINT_STATE_HIGHLIGHT;
             }
             if (CHECK_QUEST_ITEM(QUEST_SONG_SARIA)) {
@@ -3917,7 +3917,7 @@ void KaleidoScope_Update(PlayState* play) {
             if (GET_EVENTCHKINF(EVENTCHKINF_6E)) {
                 pauseCtx->worldMapPoints[WORLD_MAP_POINT_KOKIRI_FOREST] = WORLD_MAP_POINT_STATE_HIGHLIGHT;
             }
-            if (GET_EVENTCHKINF(EVENTCHKINF_0F)) {
+            if (GET_EVENTCHKINF(EVENTCHKINF_MIDO_TELLS_SARIA_IN_LOST_WOODS)) {
                 pauseCtx->worldMapPoints[WORLD_MAP_POINT_KOKIRI_FOREST] = WORLD_MAP_POINT_STATE_SHOW;
             }
 

@@ -70,7 +70,7 @@ void BgSpot16Doughnut_Init(Actor* thisx, PlayState* play) {
                 break;
         }
         PRINTF(VT_FGCOL(CYAN) "%f" VT_RST "\n", this->actor.scale.x);
-        if (!LINK_IS_ADULT || GET_EVENTCHKINF(EVENTCHKINF_2F)) {
+        if (!LINK_IS_ADULT || GET_EVENTCHKINF(EVENTCHKINF_UNKNOWN_LAVA_ERUPT_2F)) {
             this->fireFlag &= ~1;
         } else {
             this->fireFlag |= 1;

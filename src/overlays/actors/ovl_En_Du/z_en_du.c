@@ -130,7 +130,7 @@ s16 EnDu_UpdateTalkState(PlayState* play, Actor* actor) {
                 case 0x301F:
                     return NPC_TALK_STATE_ACTION;
                 case 0x3020:
-                    SET_EVENTCHKINF(EVENTCHKINF_22);
+                    SET_EVENTCHKINF(EVENTCHKINF_DARUNIA_HEARD_NOT_SARIA_SONG);
                     break;
             }
             return NPC_TALK_STATE_IDLE;

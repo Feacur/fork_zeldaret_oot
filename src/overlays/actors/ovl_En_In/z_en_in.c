@@ -144,7 +144,7 @@ u16 EnIn_GetTextIdAdult(PlayState* play) {
         case EVENTINF_HORSES_STATE_1:
             if (!(player->stateFlags1 & PLAYER_STATE1_23)) {
                 return 0x2036;
-            } else if (GET_EVENTCHKINF(EVENTCHKINF_1B)) {
+            } else if (GET_EVENTCHKINF(EVENTCHKINF_INGO_0x1B)) {
                 if (GET_INFTABLE(INFTABLE_A2)) {
                     return 0x2036;
                 } else {
@@ -200,7 +200,7 @@ s16 EnIn_UpdateTalkStateOnClosing(PlayState* play, Actor* thisx) {
             talkState = NPC_TALK_STATE_ACTION;
             break;
         case 0x203F:
-            SET_EVENTCHKINF(EVENTCHKINF_11);
+            SET_EVENTCHKINF(EVENTCHKINF_INGO_YOU_LITTLE_WEIRDO);
             SET_INFTABLE(INFTABLE_94);
             break;
     }
@@ -655,7 +655,7 @@ void func_80A7A568(EnIn* this, PlayState* play) {
     s32 phi_a2;
     s32 transitionType;
 
-    if (!GET_EVENTCHKINF(EVENTCHKINF_1B) && (player->stateFlags1 & PLAYER_STATE1_23)) {
+    if (!GET_EVENTCHKINF(EVENTCHKINF_INGO_0x1B) && (player->stateFlags1 & PLAYER_STATE1_23)) {
         SET_INFTABLE(INFTABLE_AB);
     }
     if (gSaveContext.timerState == TIMER_STATE_STOP) {
@@ -679,9 +679,9 @@ void func_80A7A568(EnIn* this, PlayState* play) {
         } else {
             Audio_PlaySfxGeneral(NA_SE_SY_FOUND, &gSfxDefaultPos, 4, &gSfxDefaultFreqAndVolScale,
                                  &gSfxDefaultFreqAndVolScale, &gSfxDefaultReverb);
-            if (!GET_EVENTCHKINF(EVENTCHKINF_1B)) {
+            if (!GET_EVENTCHKINF(EVENTCHKINF_INGO_0x1B)) {
                 if (GET_INFTABLE(INFTABLE_AB)) {
-                    SET_EVENTCHKINF(EVENTCHKINF_1B);
+                    SET_EVENTCHKINF(EVENTCHKINF_INGO_0x1B);
                     SET_INFTABLE(INFTABLE_AB);
                 }
             }
@@ -898,8 +898,8 @@ void func_80A7B024(EnIn* this, PlayState* play) {
         return;
     }
 
-    if (!GET_EVENTCHKINF(EVENTCHKINF_1B) && GET_INFTABLE(INFTABLE_AB)) {
-        SET_EVENTCHKINF(EVENTCHKINF_1B);
+    if (!GET_EVENTCHKINF(EVENTCHKINF_INGO_0x1B) && GET_INFTABLE(INFTABLE_AB)) {
+        SET_EVENTCHKINF(EVENTCHKINF_INGO_0x1B);
         SET_INFTABLE(INFTABLE_AB);
     }
 

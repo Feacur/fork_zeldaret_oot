@@ -52,7 +52,7 @@ static InitChainEntry sInitChain[] = {
 void EnGuest_Init(Actor* thisx, PlayState* play) {
     EnGuest* this = (EnGuest*)thisx;
 
-    if (GET_INFTABLE(INFTABLE_76)) {
+    if (GET_INFTABLE(INFTABLE_TALKED_TO_KAKARIKO_GUARD)) {
         Actor_Kill(&this->actor);
     } else {
         this->osAnimeObjectSlot = Object_GetSlot(&play->objectCtx, OBJECT_OS_ANIME);

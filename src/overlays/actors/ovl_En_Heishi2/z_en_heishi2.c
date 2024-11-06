@@ -351,7 +351,7 @@ void func_80A5399C(EnHeishi2* this, PlayState* play) {
 
     this->unk_30B = 0;
     var = 0;
-    if (GET_INFTABLE(INFTABLE_76)) {
+    if (GET_INFTABLE(INFTABLE_TALKED_TO_KAKARIKO_GUARD)) {
         if (!GET_INFTABLE(INFTABLE_77)) {
             if (Player_GetMask(play) == PLAYER_MASK_KEATON) {
                 if (this->unk_309 == 0) {
@@ -526,7 +526,7 @@ void func_80A53F30(EnHeishi2* this, PlayState* play) {
 void func_80A54038(EnHeishi2* this, PlayState* play) {
     SkelAnime_Update(&this->skelAnime);
     if ((Message_GetState(&play->msgCtx) == TEXT_STATE_EVENT) && Message_ShouldAdvance(play)) {
-        SET_INFTABLE(INFTABLE_76);
+        SET_INFTABLE(INFTABLE_TALKED_TO_KAKARIKO_GUARD);
         Message_CloseTextbox(play);
         Player_SetCsActionWithHaltedActors(play, NULL, PLAYER_CSACTION_7);
         this->actionFunc = func_80A53908;

@@ -1622,8 +1622,7 @@ typedef struct AttentionRangeParams {
     /* 0x4 */ f32 lockOnLeashScale;
 } AttentionRangeParams; // size = 0x8
 
-#define ATTENTION_RANGES(range, lockOnLeashRange) \
-    { SQ(range), (f32)range / lockOnLeashRange }
+#define ATTENTION_RANGES(range, lockOnLeashRange) { SQ(range), (f32)range / lockOnLeashRange }
 
 AttentionRangeParams sAttentionRanges[ATTENTION_RANGE_MAX] = {
     ATTENTION_RANGES(70, 140),        // ATTENTION_RANGE_0
@@ -4749,7 +4748,7 @@ u32 func_80035BFC(PlayState* play, s16 arg1) {
                     retTextId = 0x1047;
                 }
             } else {
-                if (Flags_GetEventChkInf(EVENTCHKINF_02)) {
+                if (Flags_GetEventChkInf(EVENTCHKINF_TALKED_TO_MIDO_WITHOUT_EQUIPMENT)) {
                     if (Flags_GetInfTable(INFTABLE_03)) {
                         retTextId = 0x1032;
                     } else {
@@ -4777,7 +4776,7 @@ u32 func_80035BFC(PlayState* play, s16 arg1) {
                         retTextId = 0x1045;
                     }
                 } else {
-                    if (Flags_GetEventChkInf(EVENTCHKINF_03)) {
+                    if (Flags_GetEventChkInf(EVENTCHKINF_TALKED_TO_SARIA_AFTER_MIDO)) {
                         if (Flags_GetInfTable(INFTABLE_0E)) {
                             retTextId = 0x1034;
                         } else {
@@ -4799,7 +4798,7 @@ u32 func_80035BFC(PlayState* play, s16 arg1) {
                         retTextId = 0x1070;
                     }
                 } else {
-                    if (Flags_GetEventChkInf(EVENTCHKINF_0B)) {
+                    if (Flags_GetEventChkInf(EVENTCHKINF_MIDO_MEETS_ADULT_LINK)) {
                         if (Flags_GetInfTable(INFTABLE_17)) {
                             retTextId = 0x1068;
                         } else {
@@ -5073,10 +5072,10 @@ u32 func_80035BFC(PlayState* play, s16 arg1) {
             break;
         case 20:
         case 21:
-            if (Flags_GetEventChkInf(EVENTCHKINF_42)) {
+            if (Flags_GetEventChkInf(EVENTCHKINF_EPONA_RACE_FINISH)) {
                 retTextId = 0x2012;
-            } else if (Flags_GetEventChkInf(EVENTCHKINF_41)) {
-                if (Flags_GetInfTable(INFTABLE_76)) {
+            } else if (Flags_GetEventChkInf(EVENTCHKINF_SHOWN_ZELDAS_LETTER)) {
+                if (Flags_GetInfTable(INFTABLE_TALKED_TO_KAKARIKO_GUARD)) {
                     retTextId = 0x2011;
                 } else {
                     retTextId = 0x2010;
@@ -5123,7 +5122,7 @@ u32 func_80035BFC(PlayState* play, s16 arg1) {
                 retTextId = 0x7047;
             } else if (Flags_GetEventChkInf(EVENTCHKINF_TALON_RETURNED_FROM_CASTLE)) {
                 retTextId = 0x701A;
-            } else if (Flags_GetEventChkInf(EVENTCHKINF_11)) {
+            } else if (Flags_GetEventChkInf(EVENTCHKINF_INGO_YOU_LITTLE_WEIRDO)) {
                 if (Flags_GetInfTable(INFTABLE_C6)) {
                     retTextId = 0x701C;
                 } else {
@@ -5219,7 +5218,7 @@ u32 func_80035BFC(PlayState* play, s16 arg1) {
                     retTextId = 0x3008;
                 }
             } else {
-                if (Flags_GetEventChkInf(EVENTCHKINF_20)) {
+                if (Flags_GetEventChkInf(EVENTCHKINF_GORON_SAID_ASK_BIG_BROTHER)) {
                     retTextId = 0x4043;
                 } else {
                     retTextId = 0x302A;
@@ -5236,7 +5235,7 @@ u32 func_80035BFC(PlayState* play, s16 arg1) {
                     retTextId = 0x3009;
                 }
             } else {
-                if (Flags_GetEventChkInf(EVENTCHKINF_2A)) {
+                if (Flags_GetEventChkInf(EVENTCHKINF_UNKNOWN_SHEIK_2A)) {
                     retTextId = 0x4043;
                 } else {
                     retTextId = 0x302A;
@@ -5255,7 +5254,7 @@ u32 func_80035BFC(PlayState* play, s16 arg1) {
                     retTextId = 0x300A;
                 }
             } else {
-                if (Flags_GetEventChkInf(EVENTCHKINF_2B)) {
+                if (Flags_GetEventChkInf(EVENTCHKINF_UNKNOWN_SHEIK_2B)) {
                     retTextId = 0x4043;
                 } else {
                     retTextId = 0x302A;
@@ -5272,7 +5271,7 @@ u32 func_80035BFC(PlayState* play, s16 arg1) {
                     retTextId = 0x3014;
                 }
             } else {
-                if (Flags_GetEventChkInf(EVENTCHKINF_2C)) {
+                if (Flags_GetEventChkInf(EVENTCHKINF_UNKNOWN_SHEIK_2C)) {
                     retTextId = 0x4043;
                 } else {
                     retTextId = 0x302A;
@@ -5289,7 +5288,7 @@ u32 func_80035BFC(PlayState* play, s16 arg1) {
                     retTextId = 0x3016;
                 }
             } else {
-                if (Flags_GetEventChkInf(EVENTCHKINF_2C)) {
+                if (Flags_GetEventChkInf(EVENTCHKINF_UNKNOWN_SHEIK_2C)) {
                     retTextId = 0x4043;
                 } else {
                     retTextId = 0x302A;
@@ -5306,7 +5305,7 @@ u32 func_80035BFC(PlayState* play, s16 arg1) {
                     retTextId = 0x3018;
                 }
             } else {
-                if (Flags_GetEventChkInf(EVENTCHKINF_2D)) {
+                if (Flags_GetEventChkInf(EVENTCHKINF_UNKNOWN_SHEIK_2D)) {
                     retTextId = 0x4043;
                 } else {
                     retTextId = 0x302A;
@@ -5316,7 +5315,8 @@ u32 func_80035BFC(PlayState* play, s16 arg1) {
         case 48:
             if (Flags_GetEventChkInf(EVENTCHKINF_HAS_GORON_RUBY)) {
                 retTextId = 0x3029;
-            } else if (Flags_GetEventChkInf(EVENTCHKINF_20) && Flags_GetEventChkInf(EVENTCHKINF_21)) {
+            } else if (Flags_GetEventChkInf(EVENTCHKINF_GORON_SAID_ASK_BIG_BROTHER) &&
+                       Flags_GetEventChkInf(EVENTCHKINF_GORON_0x21)) {
                 retTextId = 0x301B;
             } else {
                 retTextId = 0x301A;
@@ -5325,7 +5325,7 @@ u32 func_80035BFC(PlayState* play, s16 arg1) {
         case 49:
             if (Flags_GetEventChkInf(EVENTCHKINF_HAS_ZORA_SAPPHIRE)) {
                 retTextId = 0x402D;
-            } else if (Flags_GetEventChkInf(EVENTCHKINF_30)) {
+            } else if (Flags_GetEventChkInf(EVENTCHKINF_TALKED_TO_ZORAS)) {
                 retTextId = 0x4007;
             } else {
                 retTextId = 0x4006;
@@ -5334,7 +5334,7 @@ u32 func_80035BFC(PlayState* play, s16 arg1) {
         case 50:
             if (Flags_GetEventChkInf(EVENTCHKINF_HAS_ZORA_SAPPHIRE)) {
                 retTextId = 0x402E;
-            } else if (Flags_GetEventChkInf(EVENTCHKINF_30)) {
+            } else if (Flags_GetEventChkInf(EVENTCHKINF_TALKED_TO_ZORAS)) {
                 if (Flags_GetInfTable(INFTABLE_124)) {
                     retTextId = 0x4009;
                 } else {
@@ -5347,13 +5347,13 @@ u32 func_80035BFC(PlayState* play, s16 arg1) {
         case 51:
             if (Flags_GetEventChkInf(EVENTCHKINF_HAS_ZORA_SAPPHIRE)) {
                 retTextId = 0x402D;
-            } else if (Flags_GetEventChkInf(EVENTCHKINF_31)) {
+            } else if (Flags_GetEventChkInf(EVENTCHKINF_UNKNOWN_COLLECTED_ITEM_0x31)) {
                 if (Flags_GetInfTable(INFTABLE_12A)) {
                     retTextId = 0x400B;
                 } else {
                     retTextId = 0x402F;
                 }
-            } else if (Flags_GetEventChkInf(EVENTCHKINF_30)) {
+            } else if (Flags_GetEventChkInf(EVENTCHKINF_TALKED_TO_ZORAS)) {
                 retTextId = 0x400A;
             } else {
                 retTextId = 0x4006;
@@ -5362,7 +5362,7 @@ u32 func_80035BFC(PlayState* play, s16 arg1) {
         case 52:
             if (Flags_GetEventChkInf(EVENTCHKINF_HAS_ZORA_SAPPHIRE)) {
                 retTextId = 0x402E;
-            } else if (Flags_GetEventChkInf(EVENTCHKINF_30)) {
+            } else if (Flags_GetEventChkInf(EVENTCHKINF_TALKED_TO_ZORAS)) {
                 retTextId = 0x400C;
             } else {
                 retTextId = 0x4006;
@@ -5371,9 +5371,9 @@ u32 func_80035BFC(PlayState* play, s16 arg1) {
         case 53:
             if (Flags_GetEventChkInf(EVENTCHKINF_HAS_ZORA_SAPPHIRE)) {
                 retTextId = 0x402D;
-            } else if (Flags_GetEventChkInf(EVENTCHKINF_33)) {
+            } else if (Flags_GetEventChkInf(EVENTCHKINF_OPENED_BOTTLE_RUTOS_LETTER)) {
                 retTextId = 0x4010;
-            } else if (Flags_GetEventChkInf(EVENTCHKINF_30)) {
+            } else if (Flags_GetEventChkInf(EVENTCHKINF_TALKED_TO_ZORAS)) {
                 retTextId = 0x400F;
             } else {
                 retTextId = 0x4006;
@@ -5382,7 +5382,7 @@ u32 func_80035BFC(PlayState* play, s16 arg1) {
         case 54:
             if (Flags_GetEventChkInf(EVENTCHKINF_HAS_ZORA_SAPPHIRE)) {
                 retTextId = 0x402E;
-            } else if (Flags_GetEventChkInf(EVENTCHKINF_30)) {
+            } else if (Flags_GetEventChkInf(EVENTCHKINF_TALKED_TO_ZORAS)) {
                 retTextId = 0x4011;
             } else {
                 retTextId = 0x4006;
@@ -5392,7 +5392,7 @@ u32 func_80035BFC(PlayState* play, s16 arg1) {
             if (!LINK_IS_ADULT) {
                 if (Flags_GetEventChkInf(EVENTCHKINF_HAS_ZORA_SAPPHIRE)) {
                     retTextId = 0x402B;
-                } else if (Flags_GetEventChkInf(EVENTCHKINF_31)) {
+                } else if (Flags_GetEventChkInf(EVENTCHKINF_UNKNOWN_COLLECTED_ITEM_0x31)) {
                     if (Flags_GetInfTable(INFTABLE_138)) {
                         retTextId = 0x401C;
                     } else {
@@ -5442,7 +5442,7 @@ u32 func_80035BFC(PlayState* play, s16 arg1) {
                        !Flags_GetEventChkInf(EVENTCHKINF_TALON_RETURNED_FROM_CASTLE)) {
                 retTextId = 0x2044;
             } else if (Flags_GetEventChkInf(EVENTCHKINF_TALKED_TO_MALON_FIRST_TIME)) {
-                if (Flags_GetEventChkInf(EVENTCHKINF_11)) {
+                if (Flags_GetEventChkInf(EVENTCHKINF_INGO_YOU_LITTLE_WEIRDO)) {
                     retTextId = 0x2043;
                 } else {
                     retTextId = 0x2042;
@@ -5494,7 +5494,7 @@ void func_80036E50(u16 textId, s16 arg1) {
                     Flags_SetInfTable(INFTABLE_01);
                     return;
                 case 0x1031:
-                    Flags_SetEventChkInf(EVENTCHKINF_03);
+                    Flags_SetEventChkInf(EVENTCHKINF_TALKED_TO_SARIA_AFTER_MIDO);
                     Flags_SetInfTable(INFTABLE_03);
                     return;
                 case 0x1047:
@@ -5505,13 +5505,13 @@ void func_80036E50(u16 textId, s16 arg1) {
         case 1:
             switch (textId) {
                 case 0x102F:
-                    Flags_SetEventChkInf(EVENTCHKINF_02);
+                    Flags_SetEventChkInf(EVENTCHKINF_TALKED_TO_MIDO_WITHOUT_EQUIPMENT);
                     Flags_SetInfTable(INFTABLE_0C);
                     return;
                 case 0x1033:
                     Audio_PlaySfxGeneral(NA_SE_SY_CORRECT_CHIME, &gSfxDefaultPos, 4, &gSfxDefaultFreqAndVolScale,
                                          &gSfxDefaultFreqAndVolScale, &gSfxDefaultReverb);
-                    Flags_SetEventChkInf(EVENTCHKINF_04);
+                    Flags_SetEventChkInf(EVENTCHKINF_TALKED_TO_MIDO_IN_KOKIRI_FOREST);
                     Flags_SetInfTable(INFTABLE_0E);
                     return;
                 case 0x1045:
@@ -5521,7 +5521,7 @@ void func_80036E50(u16 textId, s16 arg1) {
                     Flags_SetInfTable(INFTABLE_15);
                     return;
                 case 0x1067:
-                    Flags_SetEventChkInf(EVENTCHKINF_0A);
+                    Flags_SetEventChkInf(EVENTCHKINF_TALKED_TO_MIDO_IN_LOST_WOODS);
                     Flags_SetInfTable(INFTABLE_17);
                     return;
                 case 0x1070:
@@ -5603,7 +5603,7 @@ void func_80036E50(u16 textId, s16 arg1) {
         case 20:
         case 21:
             if (textId == 0x2010) {
-                Flags_SetInfTable(INFTABLE_76);
+                Flags_SetInfTable(INFTABLE_TALKED_TO_KAKARIKO_GUARD);
             }
             return;
         case 25:
@@ -5678,13 +5678,13 @@ void func_80036E50(u16 textId, s16 arg1) {
             return;
         case 43:
             if (textId == 0x3018) {
-                Flags_SetEventChkInf(EVENTCHKINF_20);
+                Flags_SetEventChkInf(EVENTCHKINF_GORON_SAID_ASK_BIG_BROTHER);
                 Flags_SetInfTable(INFTABLE_F8);
             }
             return;
         case 48:
             if (textId == 0x3020) {
-                Flags_SetEventChkInf(EVENTCHKINF_22);
+                Flags_SetEventChkInf(EVENTCHKINF_DARUNIA_HEARD_NOT_SARIA_SONG);
                 Flags_SetInfTable(INFTABLE_113);
             }
             return;
@@ -5693,12 +5693,12 @@ void func_80036E50(u16 textId, s16 arg1) {
         case 53:
         case 54:
             if (textId == 0x4006) {
-                Flags_SetEventChkInf(EVENTCHKINF_30);
+                Flags_SetEventChkInf(EVENTCHKINF_TALKED_TO_ZORAS);
             }
             return;
         case 50:
             if (textId == 0x4006) {
-                Flags_SetEventChkInf(EVENTCHKINF_30);
+                Flags_SetEventChkInf(EVENTCHKINF_TALKED_TO_ZORAS);
             }
             if (textId == 0x4008) {
                 Flags_SetInfTable(INFTABLE_124);
@@ -5706,10 +5706,10 @@ void func_80036E50(u16 textId, s16 arg1) {
             return;
         case 51:
             if (textId == 0x4006) {
-                Flags_SetEventChkInf(EVENTCHKINF_30);
+                Flags_SetEventChkInf(EVENTCHKINF_TALKED_TO_ZORAS);
             }
             if (textId == 0x400A) {
-                Flags_SetEventChkInf(EVENTCHKINF_32);
+                Flags_SetEventChkInf(EVENTCHKINF_TALKED_TO_ZORA_NEAR_SHORE);
             }
             if (textId == 0x402F) {
                 Flags_SetInfTable(INFTABLE_12A);
@@ -5717,7 +5717,7 @@ void func_80036E50(u16 textId, s16 arg1) {
             return;
         case 55:
             if (textId == 0x401B) {
-                Flags_SetEventChkInf(EVENTCHKINF_33);
+                Flags_SetEventChkInf(EVENTCHKINF_OPENED_BOTTLE_RUTOS_LETTER);
                 Flags_SetInfTable(INFTABLE_138);
             }
             return;
@@ -5894,7 +5894,7 @@ s32 func_800374E0(PlayState* play, Actor* actor, u16 textId) {
             break;
         case 0x300A:
             if (msgCtx->choiceIndex == 0) {
-                if (Flags_GetEventChkInf(EVENTCHKINF_22)) {
+                if (Flags_GetEventChkInf(EVENTCHKINF_DARUNIA_HEARD_NOT_SARIA_SONG)) {
                     func_80035B18(play, actor, 0x300B);
                 } else {
                     func_80035B18(play, actor, 0x300C);

@@ -601,7 +601,7 @@ void EnOssan_Init(Actor* thisx, PlayState* play) {
     }
 
     // If you've given Zelda's Letter to the Kakariko Guard
-    if (this->actor.params == OSSAN_TYPE_MASK && !GET_INFTABLE(INFTABLE_76)) {
+    if (this->actor.params == OSSAN_TYPE_MASK && !GET_INFTABLE(INFTABLE_TALKED_TO_KAKARIKO_GUARD)) {
         Actor_Kill(&this->actor);
         return;
     }
@@ -1361,7 +1361,7 @@ void EnOssan_HandleCanBuyItem(PlayState* play, EnOssan* this) {
 
     switch (selectedItem->canBuyFunc(play, selectedItem)) {
         case CANBUY_RESULT_SUCCESS_FANFARE:
-            if (selectedItem->actor.params == SI_HYLIAN_SHIELD && GET_INFTABLE(INFTABLE_76)) {
+            if (selectedItem->actor.params == SI_HYLIAN_SHIELD && GET_INFTABLE(INFTABLE_TALKED_TO_KAKARIKO_GUARD)) {
                 EnOssan_SetStateGiveDiscountDialog(play, this);
             } else {
                 EnOssan_GiveItemWithFanfare(play, this);

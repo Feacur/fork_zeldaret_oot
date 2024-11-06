@@ -18,7 +18,7 @@ void EnMd_Draw(Actor* thisx, PlayState* play);
 void func_80AAB874(EnMd* this, PlayState* play);
 void func_80AAB8F8(EnMd* this, PlayState* play);
 void func_80AAB948(EnMd* this, PlayState* play);
-void func_80AABC10(EnMd* this, PlayState* play);
+void EnMd_ListenToOcarina(EnMd* this, PlayState* play);
 void func_80AABD0C(EnMd* this, PlayState* play);
 
 ActorProfile En_Md_Profile = {
@@ -398,7 +398,7 @@ u16 EnMd_GetTextIdKokiriForest(PlayState* play, EnMd* this) {
         return 0x1045;
     }
 
-    if (GET_EVENTCHKINF(EVENTCHKINF_04)) {
+    if (GET_EVENTCHKINF(EVENTCHKINF_TALKED_TO_MIDO_IN_KOKIRI_FOREST)) {
         return 0x1034;
     }
 
@@ -436,7 +436,7 @@ u16 EnMd_GetTextIdLostWoods(PlayState* play, EnMd* this) {
         return 0x1070;
     }
 
-    if (GET_EVENTCHKINF(EVENTCHKINF_0A)) {
+    if (GET_EVENTCHKINF(EVENTCHKINF_TALKED_TO_MIDO_IN_LOST_WOODS)) {
         return 0x1068;
     }
 
@@ -477,10 +477,10 @@ s16 EnMd_UpdateTalkState(PlayState* play, Actor* thisx) {
         case TEXT_STATE_CLOSING:
             switch (this->actor.textId) {
                 case 0x1028:
-                    SET_EVENTCHKINF(EVENTCHKINF_0F);
+                    SET_EVENTCHKINF(EVENTCHKINF_MIDO_TELLS_SARIA_IN_LOST_WOODS);
                     break;
                 case 0x102F:
-                    SET_EVENTCHKINF(EVENTCHKINF_02);
+                    SET_EVENTCHKINF(EVENTCHKINF_TALKED_TO_MIDO_WITHOUT_EQUIPMENT);
                     SET_INFTABLE(INFTABLE_0C);
                     break;
                 case 0x1060:
@@ -506,13 +506,14 @@ s16 EnMd_UpdateTalkState(PlayState* play, Actor* thisx) {
 
 u8 EnMd_ShouldSpawn(EnMd* this, PlayState* play) {
     if (play->sceneId == SCENE_KOKIRI_FOREST) {
-        if (!GET_EVENTCHKINF(EVENTCHKINF_1C) && !GET_EVENTCHKINF(EVENTCHKINF_HAS_ZELDAS_LETTER)) {
+        if (!GET_EVENTCHKINF(EVENTCHKINF_MIDO_IN_KOKIRI_FOREST_0x1C) &&
+            !GET_EVENTCHKINF(EVENTCHKINF_HAS_ZELDAS_LETTER)) {
             return 1;
         }
     }
 
     if (play->sceneId == SCENE_MIDOS_HOUSE) {
-        if (GET_EVENTCHKINF(EVENTCHKINF_1C) || GET_EVENTCHKINF(EVENTCHKINF_HAS_ZELDAS_LETTER)) {
+        if (GET_EVENTCHKINF(EVENTCHKINF_MIDO_IN_KOKIRI_FOREST_0x1C) || GET_EVENTCHKINF(EVENTCHKINF_HAS_ZELDAS_LETTER)) {
             if (!LINK_IS_ADULT) {
                 return 1;
             }
@@ -578,7 +579,7 @@ void func_80AAB158(EnMd* this, PlayState* play) {
     }
 
     Npc_TrackPoint(&this->actor, &this->interactInfo, 2, trackingMode);
-    if (this->actionFunc != func_80AABC10) {
+    if (this->actionFunc != EnMd_ListenToOcarina) {
         if (temp2) {
             Npc_UpdateTalking(play, &this->actor, &this->interactInfo.talkState, this->collider.dim.radius + 30.0f,
                               EnMd_GetTextId, EnMd_UpdateTalkState);
@@ -638,7 +639,7 @@ void func_80AAB5A4(EnMd* this, PlayState* play) {
     f32 temp;
 
     if (play->sceneId != SCENE_MIDOS_HOUSE) {
-        temp = (CHECK_QUEST_ITEM(QUEST_KOKIRI_EMERALD) && !GET_EVENTCHKINF(EVENTCHKINF_1C) &&
+        temp = (CHECK_QUEST_ITEM(QUEST_KOKIRI_EMERALD) && !GET_EVENTCHKINF(EVENTCHKINF_MIDO_IN_KOKIRI_FOREST_0x1C) &&
                 (play->sceneId == SCENE_KOKIRI_FOREST))
                    ? 100.0f
                    : 400.0f;
@@ -672,10 +673,10 @@ void EnMd_Init(Actor* thisx, PlayState* play) {
     Actor_SpawnAsChild(&play->actorCtx, &this->actor, play, ACTOR_EN_ELF, this->actor.world.pos.x,
                        this->actor.world.pos.y, this->actor.world.pos.z, 0, 0, 0, FAIRY_KOKIRI);
 
-    if (((play->sceneId == SCENE_KOKIRI_FOREST) && !GET_EVENTCHKINF(EVENTCHKINF_04)) ||
-        ((play->sceneId == SCENE_KOKIRI_FOREST) && GET_EVENTCHKINF(EVENTCHKINF_04) &&
+    if (((play->sceneId == SCENE_KOKIRI_FOREST) && !GET_EVENTCHKINF(EVENTCHKINF_TALKED_TO_MIDO_IN_KOKIRI_FOREST)) ||
+        ((play->sceneId == SCENE_KOKIRI_FOREST) && GET_EVENTCHKINF(EVENTCHKINF_TALKED_TO_MIDO_IN_KOKIRI_FOREST) &&
          CHECK_QUEST_ITEM(QUEST_KOKIRI_EMERALD)) ||
-        ((play->sceneId == SCENE_LOST_WOODS) && !GET_EVENTCHKINF(EVENTCHKINF_0A))) {
+        ((play->sceneId == SCENE_LOST_WOODS) && !GET_EVENTCHKINF(EVENTCHKINF_TALKED_TO_MIDO_IN_LOST_WOODS))) {
         this->actor.home.pos = this->actor.world.pos;
         this->actionFunc = func_80AAB948;
         return;
@@ -735,16 +736,16 @@ void func_80AAB948(EnMd* this, PlayState* play) {
     }
 
     if (this->interactInfo.talkState == NPC_TALK_STATE_ACTION) {
-        if (CHECK_QUEST_ITEM(QUEST_KOKIRI_EMERALD) && !GET_EVENTCHKINF(EVENTCHKINF_1C) &&
+        if (CHECK_QUEST_ITEM(QUEST_KOKIRI_EMERALD) && !GET_EVENTCHKINF(EVENTCHKINF_MIDO_IN_KOKIRI_FOREST_0x1C) &&
             (play->sceneId == SCENE_KOKIRI_FOREST)) {
             play->msgCtx.msgMode = MSGMODE_PAUSED;
         }
 
         if (play->sceneId == SCENE_KOKIRI_FOREST) {
-            SET_EVENTCHKINF(EVENTCHKINF_04);
+            SET_EVENTCHKINF(EVENTCHKINF_TALKED_TO_MIDO_IN_KOKIRI_FOREST);
         }
         if (play->sceneId == SCENE_LOST_WOODS) {
-            SET_EVENTCHKINF(EVENTCHKINF_0A);
+            SET_EVENTCHKINF(EVENTCHKINF_TALKED_TO_MIDO_IN_LOST_WOODS);
         }
 
         func_80AAA92C(this, 3);
@@ -765,7 +766,7 @@ void func_80AAB948(EnMd* this, PlayState* play) {
             player->stateFlags2 |= PLAYER_STATE2_25;
             player->unk_6A8 = &this->actor;
             Message_StartOcarina(play, OCARINA_ACTION_CHECK_SARIA);
-            this->actionFunc = func_80AABC10;
+            this->actionFunc = EnMd_ListenToOcarina;
             return;
         }
 
@@ -775,7 +776,7 @@ void func_80AAB948(EnMd* this, PlayState* play) {
     }
 }
 
-void func_80AABC10(EnMd* this, PlayState* play) {
+void EnMd_ListenToOcarina(EnMd* this, PlayState* play) {
     Player* player = GET_PLAYER(play);
 
     if (play->msgCtx.ocarinaMode >= OCARINA_MODE_04) {
@@ -784,7 +785,7 @@ void func_80AABC10(EnMd* this, PlayState* play) {
     } else if (play->msgCtx.ocarinaMode == OCARINA_MODE_03) {
         Audio_PlaySfxGeneral(NA_SE_SY_CORRECT_CHIME, &gSfxDefaultPos, 4, &gSfxDefaultFreqAndVolScale,
                              &gSfxDefaultFreqAndVolScale, &gSfxDefaultReverb);
-        this->actor.textId = 0x1067;
+        this->actor.textId = 0x1067; // Mido: "That melody?!"
         Actor_OfferTalk(&this->actor, play, this->collider.dim.radius + 30.0f);
 
         this->actionFunc = func_80AAB948;
@@ -803,10 +804,10 @@ void func_80AABD0C(EnMd* this, PlayState* play) {
         return;
     }
 
-    if (CHECK_QUEST_ITEM(QUEST_KOKIRI_EMERALD) && !GET_EVENTCHKINF(EVENTCHKINF_1C) &&
+    if (CHECK_QUEST_ITEM(QUEST_KOKIRI_EMERALD) && !GET_EVENTCHKINF(EVENTCHKINF_MIDO_IN_KOKIRI_FOREST_0x1C) &&
         (play->sceneId == SCENE_KOKIRI_FOREST)) {
         Message_CloseTextbox(play);
-        SET_EVENTCHKINF(EVENTCHKINF_1C);
+        SET_EVENTCHKINF(EVENTCHKINF_MIDO_IN_KOKIRI_FOREST_0x1C);
         Actor_Kill(&this->actor);
         return;
     }

@@ -155,7 +155,7 @@ u16 EnSa_GetTextId(PlayState* play, Actor* thisx) {
             return 0x1047;
         }
     }
-    if (GET_EVENTCHKINF(EVENTCHKINF_02)) {
+    if (GET_EVENTCHKINF(EVENTCHKINF_TALKED_TO_MIDO_WITHOUT_EQUIPMENT)) {
         this->unk_208 = 0;
         this->unk_209 = TEXT_STATE_NONE;
         if (GET_INFTABLE(INFTABLE_03)) {
@@ -188,7 +188,7 @@ s16 EnSa_UpdateTalkState(PlayState* play, Actor* thisx) {
                     talkState = NPC_TALK_STATE_IDLE;
                     break;
                 case 0x1031:
-                    SET_EVENTCHKINF(EVENTCHKINF_03);
+                    SET_EVENTCHKINF(EVENTCHKINF_TALKED_TO_SARIA_AFTER_MIDO);
                     SET_INFTABLE(INFTABLE_03);
                     talkState = NPC_TALK_STATE_IDLE;
                     break;

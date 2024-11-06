@@ -242,7 +242,7 @@ void BgTreemouth_Draw(Actor* thisx, PlayState* play) {
     if (!IS_CUTSCENE_LAYER || LINK_IS_ADULT)
 #endif
     {
-        if (GET_EVENTCHKINF(EVENTCHKINF_07)) {
+        if (GET_EVENTCHKINF(EVENTCHKINF_HAS_KOKIRI_EMERALD_ONCE)) {
             alpha = 2150;
         }
     } else { // needed to match

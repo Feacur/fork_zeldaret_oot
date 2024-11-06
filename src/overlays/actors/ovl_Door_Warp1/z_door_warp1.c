@@ -493,8 +493,8 @@ void DoorWarp1_ChildWarpOut(DoorWarp1* this, PlayState* play) {
         PRINTF("\n\n\nじかんがきたからおーしまい fade_direction=[%d]", play->transitionTrigger, TRANS_TRIGGER_START);
 
         if (play->sceneId == SCENE_DODONGOS_CAVERN_BOSS) {
-            if (!Flags_GetEventChkInf(EVENTCHKINF_25)) {
-                Flags_SetEventChkInf(EVENTCHKINF_25);
+            if (!Flags_GetEventChkInf(EVENTCHKINF_HAS_GORON_RUBY)) {
+                Flags_SetEventChkInf(EVENTCHKINF_HAS_GORON_RUBY);
                 Item_Give(play, ITEM_GORON_RUBY);
                 play->nextEntranceIndex = ENTR_DEATH_MOUNTAIN_TRAIL_0;
                 gSaveContext.nextCutsceneIndex = 0xFFF1;
@@ -503,9 +503,9 @@ void DoorWarp1_ChildWarpOut(DoorWarp1* this, PlayState* play) {
                 gSaveContext.nextCutsceneIndex = 0;
             }
         } else if (play->sceneId == SCENE_DEKU_TREE_BOSS) {
-            if (!Flags_GetEventChkInf(EVENTCHKINF_07)) {
-                Flags_SetEventChkInf(EVENTCHKINF_07);
-                Flags_SetEventChkInf(EVENTCHKINF_09);
+            if (!Flags_GetEventChkInf(EVENTCHKINF_HAS_KOKIRI_EMERALD_ONCE)) {
+                Flags_SetEventChkInf(EVENTCHKINF_HAS_KOKIRI_EMERALD_ONCE);
+                Flags_SetEventChkInf(EVENTCHKINF_HAS_KOKIRI_EMERALD);
                 Item_Give(play, ITEM_KOKIRI_EMERALD);
                 play->nextEntranceIndex = ENTR_KOKIRI_FOREST_0;
                 gSaveContext.nextCutsceneIndex = 0xFFF1;
@@ -601,7 +601,7 @@ void DoorWarp1_RutoWarpOut(DoorWarp1* this, PlayState* play) {
     this->warpTimer++;
 
     if (this->warpTimer > sWarpTimerTarget && gSaveContext.nextCutsceneIndex == 0xFFEF) {
-        SET_EVENTCHKINF(EVENTCHKINF_37);
+        SET_EVENTCHKINF(EVENTCHKINF_HAS_ZORA_SAPPHIRE);
         Item_Give(play, ITEM_ZORA_SAPPHIRE);
         play->nextEntranceIndex = ENTR_ZORAS_FOUNTAIN_0;
         gSaveContext.nextCutsceneIndex = 0xFFF0;

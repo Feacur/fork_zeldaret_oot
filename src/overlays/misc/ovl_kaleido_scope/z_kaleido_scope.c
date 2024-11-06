@@ -3817,7 +3817,7 @@ void KaleidoScope_Update(PlayState* play) {
                 pauseCtx->worldMapPoints[WORLD_MAP_POINT_LAKE_HYLIA] = WORLD_MAP_POINT_STATE_SHOW;
             }
 
-            if (GET_EVENTCHKINF(EVENTCHKINF_09)) {
+            if (GET_EVENTCHKINF(EVENTCHKINF_HAS_KOKIRI_EMERALD)) {
                 pauseCtx->worldMapPoints[WORLD_MAP_POINT_LON_LON_RANCH] = WORLD_MAP_POINT_STATE_SHOW;
             }
             if (INV_CONTENT(ITEM_OCARINA_FAIRY) != ITEM_NONE) {
@@ -3833,7 +3833,7 @@ void KaleidoScope_Update(PlayState* play) {
                 pauseCtx->worldMapPoints[WORLD_MAP_POINT_LON_LON_RANCH] = WORLD_MAP_POINT_STATE_SHOW;
             }
 
-            if (GET_EVENTCHKINF(EVENTCHKINF_09)) {
+            if (GET_EVENTCHKINF(EVENTCHKINF_HAS_KOKIRI_EMERALD)) {
                 pauseCtx->worldMapPoints[WORLD_MAP_POINT_MARKET] = WORLD_MAP_POINT_STATE_HIGHLIGHT;
             }
             if (GET_EVENTCHKINF(EVENTCHKINF_HAS_ZELDAS_LETTER)) {
@@ -3849,14 +3849,14 @@ void KaleidoScope_Update(PlayState* play) {
                 pauseCtx->worldMapPoints[WORLD_MAP_POINT_MARKET] = WORLD_MAP_POINT_STATE_HIGHLIGHT;
             }
 
-            if (GET_EVENTCHKINF(EVENTCHKINF_09)) {
+            if (GET_EVENTCHKINF(EVENTCHKINF_HAS_KOKIRI_EMERALD)) {
                 pauseCtx->worldMapPoints[WORLD_MAP_POINT_HYRULE_FIELD] = WORLD_MAP_POINT_STATE_SHOW;
             }
 
             if (GET_EVENTCHKINF(EVENTCHKINF_HAS_ZELDAS_LETTER)) {
                 pauseCtx->worldMapPoints[WORLD_MAP_POINT_DEATH_MOUNTAIN] = WORLD_MAP_POINT_STATE_HIGHLIGHT;
             }
-            if (GET_EVENTCHKINF(EVENTCHKINF_25)) {
+            if (GET_EVENTCHKINF(EVENTCHKINF_HAS_GORON_RUBY)) {
                 pauseCtx->worldMapPoints[WORLD_MAP_POINT_DEATH_MOUNTAIN] = WORLD_MAP_POINT_STATE_SHOW;
             }
             if (INV_CONTENT(ITEM_HOOKSHOT) == ITEM_HOOKSHOT) {
@@ -3911,7 +3911,7 @@ void KaleidoScope_Update(PlayState* play) {
             }
 
             pauseCtx->worldMapPoints[WORLD_MAP_POINT_KOKIRI_FOREST] = WORLD_MAP_POINT_STATE_HIGHLIGHT;
-            if (GET_EVENTCHKINF(EVENTCHKINF_09)) {
+            if (GET_EVENTCHKINF(EVENTCHKINF_HAS_KOKIRI_EMERALD)) {
                 pauseCtx->worldMapPoints[WORLD_MAP_POINT_KOKIRI_FOREST] = WORLD_MAP_POINT_STATE_SHOW;
             }
             if (GET_EVENTCHKINF(EVENTCHKINF_6E)) {
@@ -3924,10 +3924,10 @@ void KaleidoScope_Update(PlayState* play) {
             if (CHECK_QUEST_ITEM(QUEST_SONG_LULLABY)) {
                 pauseCtx->worldMapPoints[WORLD_MAP_POINT_ZORAS_DOMAIN] = WORLD_MAP_POINT_STATE_SHOW;
             }
-            if (GET_EVENTCHKINF(EVENTCHKINF_25)) {
+            if (GET_EVENTCHKINF(EVENTCHKINF_HAS_GORON_RUBY)) {
                 pauseCtx->worldMapPoints[WORLD_MAP_POINT_ZORAS_DOMAIN] = WORLD_MAP_POINT_STATE_HIGHLIGHT;
             }
-            if (GET_EVENTCHKINF(EVENTCHKINF_37)) {
+            if (GET_EVENTCHKINF(EVENTCHKINF_HAS_ZORA_SAPPHIRE)) {
                 pauseCtx->worldMapPoints[WORLD_MAP_POINT_ZORAS_DOMAIN] = WORLD_MAP_POINT_STATE_SHOW;
             }
             if (INV_CONTENT(ITEM_HOOKSHOT) == ITEM_HOOKSHOT) {

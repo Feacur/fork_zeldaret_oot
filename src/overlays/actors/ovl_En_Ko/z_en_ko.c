@@ -1242,7 +1242,7 @@ void func_80A99560(EnKo* this, PlayState* play) {
         this->actor.textId = 0x10B9;
         Message_ContinueTextbox(play, this->actor.textId);
         this->interactInfo.talkState = NPC_TALK_STATE_TALKING;
-        SET_ITEMGETINF(ITEMGETINF_31);
+        SET_ITEMGETINF(ITEMGETINF_GOT_POACHERS_SAW);
         this->actionFunc = func_80A99384;
     }
 }

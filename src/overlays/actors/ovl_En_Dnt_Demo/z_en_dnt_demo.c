@@ -164,7 +164,7 @@ void EnDntDemo_Judge(EnDntDemo* this, PlayState* play) {
                     }
                     FALLTHROUGH;
                 case PLAYER_MASK_TRUTH:
-                    if (!GET_ITEMGETINF(ITEMGETINF_1F) && (Player_GetMask(play) != PLAYER_MASK_SKULL)) {
+                    if (!GET_ITEMGETINF(ITEMGETINF_GAVE_POACHERS_SAW) && (Player_GetMask(play) != PLAYER_MASK_SKULL)) {
                         Audio_PlaySfxGeneral(NA_SE_SY_TRE_BOX_APPEAR, &gSfxDefaultPos, 4, &gSfxDefaultFreqAndVolScale,
                                              &gSfxDefaultFreqAndVolScale, &gSfxDefaultReverb);
                         this->prize = DNT_PRIZE_NUTS;

@@ -282,7 +282,7 @@ void EnDntJiji_GivePrize(EnDntJiji* this, PlayState* play) {
             PRINTF("実 \n");
             PRINTF("実 \n");
             PRINTF("実 \n");
-            SET_ITEMGETINF(ITEMGETINF_1F);
+            SET_ITEMGETINF(ITEMGETINF_GAVE_POACHERS_SAW);
         } else {
             // "stick"
             PRINTF("棒 \n");

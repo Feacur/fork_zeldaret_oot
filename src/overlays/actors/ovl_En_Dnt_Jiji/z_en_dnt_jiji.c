@@ -282,6 +282,8 @@ void EnDntJiji_GivePrize(EnDntJiji* this, PlayState* play) {
             PRINTF("実 \n");
             PRINTF("実 \n");
             PRINTF("実 \n");
+            // @orignal bug: should have been `ITEMGETINF_GOT_NUT_UPGRADE`
+            // the devs accidentally conflated `ITEMGETINF_1F`
             SET_ITEMGETINF(ITEMGETINF_GAVE_POACHERS_SAW);
         } else {
             // "stick"
@@ -291,7 +293,7 @@ void EnDntJiji_GivePrize(EnDntJiji* this, PlayState* play) {
             PRINTF("棒 \n");
             PRINTF("棒 \n");
             PRINTF("棒 \n");
-            SET_ITEMGETINF(ITEMGETINF_1E);
+            SET_ITEMGETINF(ITEMGETINF_GOT_STICK_UPGRADE);
         }
         this->actor.textId = 0;
         if ((this->stage != NULL) && (this->stage->actor.update != NULL)) {

@@ -263,7 +263,7 @@ void EnDntNomal_TargetWait(EnDntNomal* this, PlayState* play) {
             Sfx_PlaySfxCentered(NA_SE_SY_TRE_BOX_APPEAR);
             // "Big hit"
             PRINTF(VT_FGCOL(CYAN) "☆☆☆☆☆ 大当り ☆☆☆☆☆ %d\n" VT_RST, this->hitCounter);
-            if (!LINK_IS_ADULT && !GET_ITEMGETINF(ITEMGETINF_1D)) {
+            if (!LINK_IS_ADULT && !GET_ITEMGETINF(ITEMGETINF_WON_LOST_WOODS_MINIGAME)) {
                 this->hitCounter++;
                 if (this->hitCounter >= 3) {
                     OnePointCutscene_Init(play, 4140, -99, &this->actor, CAM_ID_MAIN);

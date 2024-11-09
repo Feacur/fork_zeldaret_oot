@@ -414,7 +414,7 @@ void EnExItem_TargetPrizeFinish(EnExItem* this, PlayState* play) {
     if ((Message_GetState(&play->msgCtx) == TEXT_STATE_DONE) && Message_ShouldAdvance(play)) {
         // "Successful completion"
         PRINTF(VT_FGCOL(GREEN) "☆☆☆☆☆ 正常終了 ☆☆☆☆☆ \n" VT_RST);
-        SET_ITEMGETINF(ITEMGETINF_1D);
+        SET_ITEMGETINF(ITEMGETINF_WON_LOST_WOODS_MINIGAME);
         Actor_Kill(&this->actor);
     }
 }

@@ -808,7 +808,7 @@ void BgDyYoseizo_Give_Reward(BgDyYoseizo* this, PlayState* play) {
                 this->itemSpawned = true;
                 gSaveContext.healthAccumulator = 0x140;
                 Interface_ChangeHudVisibilityMode(HUD_VISIBILITY_HEARTS_MAGIC);
-                gSaveContext.save.info.itemGetInf[ITEMGETINF_18_19_1A_INDEX] |= sItemGetFlags[cueIdTemp];
+                gSaveContext.save.info.itemGetInf[ITEMGETINF_1X_INDEX] |= sItemGetFlags[cueIdTemp];
                 Item_Give(play, sItemIds[cueIdTemp]);
             }
         } else {

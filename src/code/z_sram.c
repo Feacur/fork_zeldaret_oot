@@ -361,7 +361,7 @@ void Sram_InitDebugSave(void) {
      * [1]: INFTABLE_0E
      * [ ]: INFTABLE_0F
      */
-    gSaveContext.save.info.infTable[0] |= 0b0101000000001001;
+    gSaveContext.save.info.infTable[INFTABLE_0X_INDEX] |= 0b0101000000001001;
     /* equivalent of
      * [1]: EVENTCHKINF_00
      * [1]: EVENTCHKINF_01
@@ -380,7 +380,7 @@ void Sram_InitDebugSave(void) {
      * [ ]: EVENTCHKINF_0E
      * [ ]: EVENTCHKINF_0F
      */
-    gSaveContext.save.info.eventChkInf[0] |= 0b0001001000111111;
+    gSaveContext.save.info.eventChkInf[EVENTCHKINF_0X_INDEX] |= 0b0001001000111111;
     SET_EVENTCHKINF(EVENTCHKINF_80);
     SET_EVENTCHKINF(EVENTCHKINF_C4);
 

@@ -83,6 +83,10 @@
         (state)->size = sizeof(newStruct);               \
     } while (0)
 
+#define GET_U16_TABLE_FLAG(table, flag) ((table)[(flag) >> 4] & (1 << ((flag) & 0xF)))
+#define SET_U16_TABLE_FLAG(table, flag) ((table)[(flag) >> 4] |= (1 << ((flag) & 0xF)))
+#define CLR_U16_TABLE_FLAG(table, flag) ((table)[(flag) >> 4] &= ~(1 << ((flag) & 0xF)))
+
 #if OOT_DEBUG
 
 #define DMA_REQUEST_SYNC(ram, vrom, size, file, line) DmaMgr_RequestSyncDebug(ram, vrom, size, file, line)

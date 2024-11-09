@@ -653,10 +653,9 @@ typedef enum LinkAge {
 #define EVENTCHKINF_DE_MASK (1 << 14)
 
 
-#define GET_EVENTCHKINF(flag) (gSaveContext.save.info.eventChkInf[(flag) >> 4] & (1 << ((flag) & 0xF)))
-#define SET_EVENTCHKINF(flag) (gSaveContext.save.info.eventChkInf[(flag) >> 4] |= (1 << ((flag) & 0xF)))
-#define CLEAR_EVENTCHKINF(flag) (gSaveContext.save.info.eventChkInf[(flag) >> 4] &= ~(1 << ((flag) & 0xF)))
-
+#define GET_EVENTCHKINF(flag) GET_U16_TABLE_FLAG(gSaveContext.save.info.eventChkInf, flag)
+#define SET_EVENTCHKINF(flag) SET_U16_TABLE_FLAG(gSaveContext.save.info.eventChkInf, flag)
+#define CLEAR_EVENTCHKINF(flag) CLR_U16_TABLE_FLAG(gSaveContext.save.info.eventChkInf, flag)
 
 /*
  * SaveContext.itemGetInf
@@ -881,10 +880,10 @@ typedef enum LinkAge {
 #define INFTABLE_1DX_INDEX 29
 
 
-#define GET_INFTABLE(flag) (gSaveContext.save.info.infTable[(flag) >> 4] & (1 << ((flag) & 0xF)))
-#define SET_INFTABLE(flag) (gSaveContext.save.info.infTable[(flag) >> 4] |= (1 << ((flag) & 0xF)))
-#define CLEAR_INFTABLE(flag) (gSaveContext.save.info.infTable[(flag) >> 4] &= ~(1 << ((flag) & 0xF)))
 
+#define GET_INFTABLE(flag) GET_U16_TABLE_FLAG(gSaveContext.save.info.infTable, flag)
+#define SET_INFTABLE(flag) SET_U16_TABLE_FLAG(gSaveContext.save.info.infTable, flag)
+#define CLEAR_INFTABLE(flag) CLR_U16_TABLE_FLAG(gSaveContext.save.info.infTable, flag)
 
 /*
  * SaveContext.eventInf
@@ -960,10 +959,9 @@ typedef enum EventInfHorsesState {
 #define EVENTINF_30 0x30
 
 
-#define GET_EVENTINF(flag) (gSaveContext.eventInf[(flag) >> 4] & (1 << ((flag) & 0xF)))
-#define SET_EVENTINF(flag) (gSaveContext.eventInf[(flag) >> 4] |= (1 << ((flag) & 0xF)))
-#define CLEAR_EVENTINF(flag) (gSaveContext.eventInf[(flag) >> 4] &= ~(1 << ((flag) & 0xF)))
-
+#define GET_EVENTINF(flag) GET_U16_TABLE_FLAG(gSaveContext.eventInf, flag)
+#define SET_EVENTINF(flag) SET_U16_TABLE_FLAG(gSaveContext.eventInf, flag)
+#define CLEAR_EVENTINF(flag) CLR_U16_TABLE_FLAG(gSaveContext.eventInf, flag)
 
 extern SaveContext gSaveContext;
 

@@ -877,7 +877,7 @@ typedef enum LinkAge {
 #define INFTABLE_1AD_SHIFT 13
 
 // 0x1D0-0x1DF
-#define INFTABLE_1DX_INDEX 29
+#define INFTABLE_EQUIPMENT_INDEX 29 // as per `Inventory_DeleteEquipment` @ `code_80097A00.c`
 
 
 

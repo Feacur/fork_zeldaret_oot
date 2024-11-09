@@ -162,7 +162,25 @@ void Sram_InitNewSave(void) {
     gSaveContext.save.info.horseData.pos.z = 5497;
     gSaveContext.save.info.horseData.angle = -0x6AD9;
     gSaveContext.save.info.playerData.magicLevel = 0;
-    gSaveContext.save.info.infTable[INFTABLE_1DX_INDEX] = 1;
+    /* equivalent of
+     * [1]: INFTABLE_1D0
+     * [ ]: INFTABLE_1D1
+     * [ ]: INFTABLE_1D2
+     * [ ]: INFTABLE_1D3
+     * [ ]: INFTABLE_1D4
+     * [ ]: INFTABLE_1D5
+     * [ ]: INFTABLE_1D6
+     * [ ]: INFTABLE_1D7
+     * [ ]: INFTABLE_1D8
+     * [ ]: INFTABLE_1D9
+     * [ ]: INFTABLE_1DA
+     * [ ]: INFTABLE_1DB
+     * [ ]: INFTABLE_1DC
+     * [ ]: INFTABLE_1DD
+     * [ ]: INFTABLE_1DE
+     * [ ]: INFTABLE_1DF
+     */
+    gSaveContext.save.info.infTable[INFTABLE_EQUIPMENT_INDEX] = 1;
     gSaveContext.save.info.sceneFlags[SCENE_WATER_TEMPLE].swch = 0x40000000;
 }
 
@@ -325,8 +343,44 @@ void Sram_InitDebugSave(void) {
     gSaveContext.save.info.horseData.pos.y = 72;
     gSaveContext.save.info.horseData.pos.z = 5497;
     gSaveContext.save.info.horseData.angle = -0x6AD9;
-    gSaveContext.save.info.infTable[0] |= 0x5009;
-    gSaveContext.save.info.eventChkInf[0] |= 0x123F;
+    /* equivalent of
+     * [1]: INFTABLE_00
+     * [ ]: INFTABLE_01
+     * [ ]: INFTABLE_02
+     * [1]: INFTABLE_03
+     * [ ]: INFTABLE_04
+     * [ ]: INFTABLE_05
+     * [ ]: INFTABLE_06
+     * [ ]: INFTABLE_07
+     * [ ]: INFTABLE_08
+     * [ ]: INFTABLE_09
+     * [ ]: INFTABLE_0A
+     * [ ]: INFTABLE_0B
+     * [1]: INFTABLE_0C
+     * [ ]: INFTABLE_0D
+     * [1]: INFTABLE_0E
+     * [ ]: INFTABLE_0F
+     */
+    gSaveContext.save.info.infTable[0] |= 0b0101000000001001;
+    /* equivalent of
+     * [1]: EVENTCHKINF_00
+     * [1]: EVENTCHKINF_01
+     * [1]: EVENTCHKINF_02
+     * [1]: EVENTCHKINF_03
+     * [1]: EVENTCHKINF_04
+     * [1]: EVENTCHKINF_05
+     * [ ]: EVENTCHKINF_06
+     * [ ]: EVENTCHKINF_HAS_KOKIRI_EMERALD_ONCE
+     * [ ]: EVENTCHKINF_08
+     * [1]: EVENTCHKINF_HAS_KOKIRI_EMERALD
+     * [ ]: EVENTCHKINF_0A
+     * [ ]: EVENTCHKINF_0B
+     * [1]: EVENTCHKINF_0C
+     * [ ]: EVENTCHKINF_0D
+     * [ ]: EVENTCHKINF_0E
+     * [ ]: EVENTCHKINF_0F
+     */
+    gSaveContext.save.info.eventChkInf[0] |= 0b0001001000111111;
     SET_EVENTCHKINF(EVENTCHKINF_80);
     SET_EVENTCHKINF(EVENTCHKINF_C4);
 

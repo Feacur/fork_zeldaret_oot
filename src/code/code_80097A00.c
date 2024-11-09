@@ -299,7 +299,25 @@ u8 Inventory_DeleteEquipment(PlayState* play, s16 equipment) {
 
         if (equipment == EQUIP_TYPE_SWORD) {
             gSaveContext.save.info.equips.buttonItems[0] = ITEM_NONE;
-            gSaveContext.save.info.infTable[INFTABLE_1DX_INDEX] = 1;
+            /* equivalent of
+             * [1]: INFTABLE_1D0
+             * [ ]: INFTABLE_1D1
+             * [ ]: INFTABLE_1D2
+             * [ ]: INFTABLE_1D3
+             * [ ]: INFTABLE_1D4
+             * [ ]: INFTABLE_1D5
+             * [ ]: INFTABLE_1D6
+             * [ ]: INFTABLE_1D7
+             * [ ]: INFTABLE_1D8
+             * [ ]: INFTABLE_1D9
+             * [ ]: INFTABLE_1DA
+             * [ ]: INFTABLE_1DB
+             * [ ]: INFTABLE_1DC
+             * [ ]: INFTABLE_1DD
+             * [ ]: INFTABLE_1DE
+             * [ ]: INFTABLE_1DF
+             */
+            gSaveContext.save.info.infTable[INFTABLE_EQUIPMENT_INDEX] = 1;
         }
 
         Player_SetEquipmentData(play, player);

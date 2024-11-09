@@ -77,7 +77,7 @@ void EnHs_Init(Actor* thisx, PlayState* play) {
         // "chicken shop (adult era)"
         PRINTF(VT_FGCOL(CYAN) " ヒヨコの店(大人の時) \n" VT_RST);
         func_80A6E3A0(this, func_80A6E9AC);
-        if (GET_ITEMGETINF(ITEMGETINF_30)) {
+        if (GET_ITEMGETINF(ITEMGETINF_GOT_ODD_POTION)) {
             // "chicken shop closed"
             PRINTF(VT_FGCOL(CYAN) " ヒヨコ屋閉店 \n" VT_RST);
             Actor_Kill(&this->actor);

@@ -80,7 +80,7 @@ void EnDs_DisplayOddPotionText(EnDs* this, PlayState* play) {
         this->actor.textId = 0x504F;
         this->actionFunc = EnDs_TalkAfterGiveOddPotion;
         this->actor.flags &= ~ACTOR_FLAG_TALK;
-        SET_ITEMGETINF(ITEMGETINF_30);
+        SET_ITEMGETINF(ITEMGETINF_GOT_ODD_POTION);
     }
 }
 
@@ -211,7 +211,7 @@ void EnDs_Wait(EnDs* this, PlayState* play) {
                                  &gSfxDefaultFreqAndVolScale, &gSfxDefaultReverb);
             player->actor.textId = 0x504A;
             this->actionFunc = EnDs_OfferOddPotion;
-        } else if (GET_ITEMGETINF(ITEMGETINF_30)) {
+        } else if (GET_ITEMGETINF(ITEMGETINF_GOT_ODD_POTION)) {
             player->actor.textId = 0x500C;
             this->actionFunc = EnDs_OfferBluePotion;
         } else {

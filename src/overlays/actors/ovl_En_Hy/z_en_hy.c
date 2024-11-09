@@ -1103,7 +1103,7 @@ s32 EnHy_ShouldSpawn(EnHy* this, PlayState* play) {
                 return true;
             } else if (IS_NIGHT) {
                 return false;
-            } else if (GET_EVENTCHKINF(EVENTCHKINF_80) && !GET_EVENTCHKINF(EVENTCHKINF_45)) {
+            } else if (GET_EVENTCHKINF(EVENTCHKINF_80) && !GET_EVENTCHKINF(EVENTCHKINF_GOT_MASTER_SWORD)) {
                 return false;
             } else {
                 return true;

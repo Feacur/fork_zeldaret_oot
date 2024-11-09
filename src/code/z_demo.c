@@ -647,8 +647,8 @@ void CutsceneCmd_Destination(PlayState* play, CutsceneContext* csCtx, CsCmdDesti
                 gSaveContext.save.info.fw.set = 0;
                 gSaveContext.respawn[RESPAWN_MODE_TOP].data = 0;
 
-                if (!GET_EVENTCHKINF(EVENTCHKINF_45)) {
-                    SET_EVENTCHKINF(EVENTCHKINF_45);
+                if (!GET_EVENTCHKINF(EVENTCHKINF_GOT_MASTER_SWORD)) {
+                    SET_EVENTCHKINF(EVENTCHKINF_GOT_MASTER_SWORD);
                     play->nextEntranceIndex = ENTR_CUTSCENE_MAP_0;
                     play->transitionTrigger = TRANS_TRIGGER_START;
                     gSaveContext.save.cutsceneIndex = 0xFFF3;
